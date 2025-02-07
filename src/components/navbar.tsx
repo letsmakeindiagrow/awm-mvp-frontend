@@ -13,10 +13,10 @@ export function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/">
               <img
-                src="/website logo.jpg"
+                src="/new logo png website.png"
                 alt="Aadyanvi Wealth"
                 className="h-13.5 w-auto cursor-pointer ml-0"
-                style={{ width: 180, height: 50 }}
+                style={{height: "200px", width: "240px"}}
               />
             </Link>
           </div>

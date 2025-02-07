@@ -6,10 +6,11 @@ import { Stats } from "@/components/stats";
 import { Testimonials } from "@/components/testimonials";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer";
-
+import BlobBackground from "@/components/BlobBackground"; // ✅ Import the Blob Background
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="relative min-h-screen bg-white">
+      <BlobBackground /> {/* ✅ Background added here */}
       <Navbar />
       <Hero />
       <Features />
