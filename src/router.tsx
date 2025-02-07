@@ -11,10 +11,7 @@ export const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> }, // Home page
       { path: "/disclaimer", element: <Disclaimer /> }, // Register page
-      {
-        path: "/about",
-        element: <AboutPage />, // About page at /about
-      },
+
       {
         path: "/about",
         element: <AboutPage />, // About page at /about
