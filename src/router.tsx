@@ -16,6 +16,10 @@ export const appRouter = createBrowserRouter([
         path: "/about",
         element: <AboutPage />, // About page at /about
       },
+      {
+        path: "/about",
+        element: <AboutPage />, // About page at /about
+      },
     ],
   },
 ]);
