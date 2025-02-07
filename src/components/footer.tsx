@@ -7,6 +7,7 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
+        {/* Subscription Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mb-12">
           <div className="lg:col-span-1">
             <h3 className="text-xl font-medium text-white">
@@ -28,255 +29,81 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Footer Navigation */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-12 border-t border-gray-800">
+          {/* Algo Trading */}
           <div>
-            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
+            <h4 className="text-lg font-medium text-white mb-4">Algo Trading</h4>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/values"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Purpose and Values
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/leadership"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Leadership
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/csr"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Corporate Social Responsibility
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/newsroom"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Newsroom
-                </Link>
-              </li>
+              <li><Link to="/backtest" className="hover:text-[#08AFF1] transition-colors">Backtest</Link></li>
+              <li><Link to="/forward-test" className="hover:text-[#08AFF1] transition-colors">Forward Test</Link></li>
+              <li><Link to="/live-trade" className="hover:text-[#08AFF1] transition-colors">Live Trade</Link></li>
             </ul>
-            
-          </div>
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/values"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Purpose and Values
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/leadership"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Leadership
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/csr"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Corporate Social Responsibility
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/newsroom"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Newsroom
-                </Link>
-              </li>
-            </ul>
-            
-          </div>
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/values"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Purpose and Values
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/leadership"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Leadership
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/csr"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Corporate Social Responsibility
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/newsroom"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Newsroom
-                </Link>
-              </li>
-            </ul>
-            
-          </div>
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link
-                  to="/about"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/values"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Purpose and Values
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/leadership"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Leadership
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/csr"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Corporate Social Responsibility
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/newsroom"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Newsroom
-                </Link>
-              </li>
-            </ul>
-            
           </div>
 
-          {/* Similar changes for other sections, using Link instead of a */}
+          {/* Indicator Algo */}
+          <div>
+            <h4 className="text-lg font-medium text-white mb-4">Indicator Algo</h4>
+            <ul className="space-y-3">
+              <li><Link to="/tradingview" className="hover:text-[#08AFF1] transition-colors">TradingView</Link></li>
+              <li><Link to="/chartink" className="hover:text-[#08AFF1] transition-colors">ChartInk</Link></li>
+              <li><Link to="/pine-scripts" className="hover:text-[#08AFF1] transition-colors">Pine Scripts</Link></li>
+            </ul>
+          </div>
+
+          {/* Discretionary & Community */}
+          <div>
+            <h4 className="text-lg font-medium text-white mb-4">Discretionary</h4>
+            <ul className="space-y-3">
+              <li><Link to="/simulator" className="hover:text-[#08AFF1] transition-colors">Simulator</Link></li>
+              <li><Link to="/strategy-builder" className="hover:text-[#08AFF1] transition-colors">Strategy Builder</Link></li>
+            </ul>
+          </div>
+
+          {/* Resources & Company */}
+          <div>
+
+
+            <h4 className="text-lg font-medium text-white mb-4">Company</h4>
+            <ul className="space-y-3">
+              <li><Link to="/about" className="hover:text-[#08AFF1] transition-colors">About Us</Link></li>
+              <li><Link to="/terms" className="hover:text-[#08AFF1] transition-colors">Terms & Conditions</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-[#08AFF1] transition-colors">Privacy Policy</Link></li>
+              <li><Link to="/disclaimer" onClick={() => window.scrollTo(0, 0)} className="hover:text-[#08AFF1] transition-colors">Disclaimer</Link></li>
+            </ul>
+          </div>
+
+          {/* Social Links & Logo */}
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <h4 className="text-lg font-medium text-white mb-4">
-              Connect With Us
-            </h4>
+            <h4 className="text-lg font-medium text-white mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
                 <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
+              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
                 <Youtube className="h-6 w-6" />
                 <span className="sr-only">YouTube</span>
               </a>
             </div>
             <div className="mt-8">
-              <img
-                src="/logo.png"
-                alt="Aadyanvi Wealth"
-                className="brightness-0 invert"
-                style={{ width: 150, height: 80 }}
-              />
+              <img src="/logo.png" alt="Aadyanvi Wealth" className="brightness-0 invert" style={{ width: 150, height: 80 }} />
             </div>
           </div>
         </div>
 
+        {/* Copyright Section */}
         <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
-            Copyright © {new Date().getFullYear()} Aadyanvi Wealth. All rights
-            reserved.
+            Copyright © {new Date().getFullYear()} Aadyanvi Wealth. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link
-              to="/terms"
-              className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-            >
-              Terms of use
-            </Link>
-            <Link
-              to="/privacy"
-              className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-            >
-              Privacy Policy
-            </Link>
+            <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Terms of Use</Link>
+            <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
           </div>
         </div>
       </div>

@@ -45,9 +45,12 @@ export function Navbar() {
             >
               Contact
             </Link>
-            <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
-              Get Started
-            </button>
+            <Link to="/disclaimer">
+              <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
+                Get Started
+              </button>
+            </Link>
+
           </div>
           <div className="md:hidden flex items-center">
             <button
