@@ -73,6 +73,145 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
+            
+          </div>
+          <div>
+            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/values"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Purpose and Values
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/leadership"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Leadership
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/csr"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Corporate Social Responsibility
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/newsroom"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Newsroom
+                </Link>
+              </li>
+            </ul>
+            
+          </div>
+          <div>
+            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/values"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Purpose and Values
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/leadership"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Leadership
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/csr"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Corporate Social Responsibility
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/newsroom"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Newsroom
+                </Link>
+              </li>
+            </ul>
+            
+          </div>
+          <div>
+            <h4 className="text-lg font-medium text-white mb-4">Who We Are</h4>
+            <ul className="space-y-3">
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/values"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Purpose and Values
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/leadership"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Leadership
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/csr"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Corporate Social Responsibility
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/newsroom"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  Newsroom
+                </Link>
+              </li>
+            </ul>
+            
           </div>
 
           {/* Similar changes for other sections, using Link instead of a */}
@@ -114,7 +253,7 @@ export function Footer() {
                 src="/logo.png"
                 alt="Aadyanvi Wealth"
                 className="brightness-0 invert"
-                style={{ width: 160, height: 40 }}
+                style={{ width: 150, height: 80 }}
               />
             </div>
           </div>
