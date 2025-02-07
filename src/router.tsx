@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "./pages/home";
 import AboutPage from "./pages/about";
 import Disclaimer from "./pages/disclaimer"; // Import Register page
+import AboutPage from "./pages/about";
 import App from "./App";
 
 export const appRouter = createBrowserRouter([
