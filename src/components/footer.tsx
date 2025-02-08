@@ -3,6 +3,8 @@ import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Twitter, Linkedin, Youtube } from "lucide-react";
 
+
+
 export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
@@ -94,6 +96,12 @@ export function Footer() {
               <img src="/logo.png" alt="Aadyanvi Wealth" className="brightness-0 invert" style={{ width: 150, height: 80 }} />
             </div>
           </div>
+          
+        </div>
+        {/* Disclaimer Section */}
+        <div className="text-xs text-gray-400 hover:text-[#08AFF1] transition-colors text-center mb-4">
+          <p>Investment in the securities market are subject to market risks. Read all the related documents carefully before investing.</p>
+          <p>Registration/Certification from NISM in no way guarantees performance of the intermediary or provides any assurance of returns to investors. The securities displayed are for illustration only and are not recommendatory.</p>
         </div>
 
         {/* Copyright Section */}
@@ -102,6 +110,8 @@ export function Footer() {
             Copyright © {new Date().getFullYear()} Aadyanvi Wealth. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm">
+            <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Disclaimer</Link>
+            <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Terms of Use</Link>
             <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
           </div>
