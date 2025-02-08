@@ -1,13 +1,26 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Adjust threshold as needed
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav
+      className={`fixed top-0 w-full z-50 border-b border-gray-100 transition-all duration-300 ${
+        isScrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
@@ -28,7 +41,8 @@ export function Navbar() {
               Features
             </Link>
             <Link
-              to="#about"
+              to="/about"
+              onClick={() => window.scrollTo(0, 0)}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
             >
               About
