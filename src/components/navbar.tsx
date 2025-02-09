@@ -24,7 +24,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/">
+            <Link to="/" onClick={()=>window.scrollTo(0,0)}>
               <img
                 src="/new logo png website.png"
                 alt="Aadyanvi Wealth"
@@ -59,7 +59,7 @@ export function Navbar() {
             >
               Contact
             </Link>
-            <Link to="/disclaimer">
+            <Link to="/registration" onClick={()=>window.scrollTo(0,0)}>
               <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
                 Get Started
               </button>

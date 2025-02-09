@@ -1,122 +1,70 @@
-import { motion } from "framer-motion";
+import React from 'react';
 
-const BlobBackground: React.FC = () => {
+const BlobStatic: React.FC = () => {
   return (
     <svg
       width="100%"
-      height="330vh"
-      viewBox="0 0 100 300"
+      height="350vh"
+      viewBox="0 0 100 350"
       preserveAspectRatio="xMidYMid slice"
       className="absolute inset-0 z-0"
     >
-      {/* Green Blobs - #AACF45 */}
-      <motion.circle
-        cx="15"
-        cy="40"
-        r="8"
-        fill="rgba(170, 207, 69, 0.3)"
-        animate={{ y: [0, -10, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.circle
-        cx="15"
-        cy="80"
-        r="6"
-        fill="rgba(170, 207, 69, 0.25)"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.circle
-        cx="30"
-        cy="120"
-        r="10"
-        fill="rgba(170, 207, 69, 0.3)"
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.ellipse
-        cx="35"
-        cy="160"
-        rx="12"
-        ry="8"
+      {/* First section - top blobs */}
+      <path
+        d="M-20 -20 C30 0, 60 40, 80 20 S120 40, 140 20 S160 50, 180 30 V-50 H-50 Z"
         fill="rgba(170, 207, 69, 0.2)"
-        animate={{ y: [0, -8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       />
-      <motion.circle
-        cx="50"
-        cy="200"
-        r="10"
-        fill="rgba(170, 207, 69, 0.3)"
-        animate={{ y: [0, -6, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.polygon
-        points="25,240 40,270 15,270"
-        fill="rgba(170, 207, 69, 0.2)"
-        animate={{ rotate: [0, 10, -10, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      
+      <path
+        d="M40 -30 C90 20, 120 40, 150 20 S190 40, 210 20 S230 50, 250 30 V-50 H20 Z"
+        fill="rgba(8, 175, 241, 0.15)"
       />
 
-      {/* Blue Blobs - #08AFF1 */}
-      <motion.circle
-        cx="60"
-        cy="60"
-        r="10"
-        fill="rgba(8, 175, 241, 0.3)"
-        animate={{ y: [0, -12, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+      {/* Second section */}
+      <path
+        d="M-30 80 C20 100, 40 130, 90 110 S130 130, 150 110 S170 140, 190 120 V160 H-50 Z"
+        fill="rgba(170, 207, 69, 0.15)"
       />
-      <motion.ellipse
-        cx="65"
-        cy="100"
-        rx="15"
-        ry="10"
-        fill="rgba(8, 175, 241, 0.25)"
-        animate={{ x: [0, -5, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      
+      <path
+        d="M50 90 C100 110, 130 140, 160 120 S200 140, 220 120 S240 150, 260 130 V170 H30 Z"
+        fill="rgba(8, 175, 241, 0.2)"
       />
-      <motion.circle
-        cx="75"
-        cy="140"
-        r="7"
-        fill="rgba(8, 175, 241, 0.2)"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+
+      {/* Third section */}
+      <path
+        d="M-40 160 C10 180, 30 220, 80 200 S120 220, 140 200 S160 230, 180 210 V250 H-60 Z"
+        fill="rgba(170, 207, 69, 0.2)"
       />
-      <motion.circle
-        cx="80"
-        cy="180"
-        rx="10"
-        ry="6"
-        fill="rgba(8, 175, 241, 0.2)"
-        animate={{ x: [0, 6, 0] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+      
+      <path
+        d="M30 170 C80 190, 110 230, 140 210 S180 230, 200 210 S220 240, 240 220 V260 H10 Z"
+        fill="rgba(8, 175, 241, 0.15)"
       />
-      {/* <motion.circle
-        cx="85"
-        cy="220"
-        r="5"
-        fill="rgba(8, 175, 241, 0.2)"
-        animate={{ y: [0, -5, 0] }}
-        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-      /> */}
-      <motion.polygon
-        points="60,260 75,290 50,290"
-        fill="rgba(8, 175, 241, 0.2)"
-        animate={{ rotate: [0, -15, 15, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+
+      {/* Fourth section */}
+      <path
+        d="M-20 240 C30 260, 50 300, 100 280 S140 300, 160 280 S180 310, 200 290 V330 H-40 Z"
+        fill="rgba(170, 207, 69, 0.15)"
       />
-      <motion.circle
-        cx="90"
-        cy="400"
-        r="8"
+      
+      <path
+        d="M50 250 C100 270, 130 310, 160 290 S200 310, 220 290 S240 320, 260 300 V340 H30 Z"
         fill="rgba(8, 175, 241, 0.2)"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
+
+      {/* Fifth section - bottom blobs */}
+      <path
+        d="M-30 320 C20 340, 40 380, 90 360 S130 380, 150 360 S170 390, 190 370 V410 H-50 Z"
+        fill="rgba(170, 207, 69, 0.2)"
+      />
+      
+      <path
+        d="M40 330 C90 350, 120 390, 150 370 S190 390, 210 370 S230 400, 250 380 V420 H20 Z"
+        fill="rgba(8, 175, 241, 0.15)"
       />
     </svg>
   );
 };
 
-export default BlobBackground;
+export default BlobStatic;
