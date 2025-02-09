@@ -618,89 +618,93 @@ const RegistrationForm: React.FC = () => {
     }
   };
 
+
   return (
     <TooltipProvider>
-    <Card className="w-full max-w-2xl mx-auto border border-gray-200 shadow-lg mt-10 mb-10">
-      <CardContent className="pt-6">
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Progress indicator */}
-          <div className="flex justify-between mb-8">
-            {[1, 2, 3, 4, 5].map((num) => (
-              <div key={num} className="flex items-center">
-                <div
-                  className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
-                    step >= num ? "bg-blue-600 text-white" : "bg-gray-200"
-                  }`}
-                >
-                  {num}
-                </div>
-                {num < 5 && (
+    <div className="min-h-screen p-6 bg-gray-200">
+    <Card className="w-full max-w-2xl mx-auto border-0 shadow-xl mt-10 mb-10 bg-[#E6F7FF]">
+
+        <CardContent className="pt-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Progress indicator */}
+            <div className="flex justify-between mb-8">
+              {[1, 2, 3, 4, 5].map((num) => (
+                <div key={num} className="flex items-center">
                   <div
-                    className={`w-16 h-1 ${
-                      step > num ? "bg-blue-600" : "bg-gray-200"
+                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
+                      step >= num ? "bg-[#08AFF1] text-white" : "bg-gray-200"
                     }`}
-                  />
-                )}
-              </div>
-            ))}
-          </div>
+                  >
+                    {num}
+                  </div>
+                  {num < 5 && (
+                    <div
+                      className={`w-16 h-1 ${
+                        step > num ? "bg-[#08AFF1]" : "bg-gray-200"
+                      }`}
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
 
-          {/* Form steps */}
-          {step === 1 && renderStep1()}
-          {step === 2 && renderStep2()}
-          {step === 3 && renderStep3()}
-          {step === 4 && renderStep4()}
-          {step === 5 && renderStep5()}
+            {/* Form steps remain the same */}
+            {step === 1 && renderStep1()}
+            {step === 2 && renderStep2()}
+            {step === 3 && renderStep3()}
+            {step === 4 && renderStep4()}
+            {step === 5 && renderStep5()}
 
-          {/* Navigation buttons */}
-          <div className="flex justify-between pt-6">
-            {step > 1 && (
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setStep(step - 1)}
-                className="flex items-center gap-2 bg-gray-100 hover:bg-gray-200"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Previous
-              </Button>
-            )}
-            <div className="ml-auto">
-              {step < 5 ? (
+            {/* Navigation buttons with updated colors */}
+            <div className="flex justify-between pt-6">
+              {step > 1 && (
                 <Button
                   type="button"
-                  onClick={() => setStep(step + 1)}
-                  disabled={!validateStep(step)}
-                  className="flex items-center gap-2 bg-blue-600 text-white hover:bg-blue-700"
+                  variant="outline"
+                  onClick={() => setStep(step - 1)}
+                  className="flex items-center gap-2 border-[#AACF45] text-[#AACF45] hover:bg-[#AACF45] hover:text-white"
                 >
-                  Next
-                  <ArrowRight className="w-4 h-4" />
-                </Button>
-              ) : (
-                <Button 
-                  type="submit" 
-                  disabled={!validateStep(step)}
-                  className="flex items-center gap-2 bg-green-600 text-white hover:bg-green-700"
-                >
-                  Submit for Verification
+                  <ArrowLeft className="w-4 h-4" />
+                  Previous
                 </Button>
               )}
+              <div className="ml-auto">
+                {step < 5 ? (
+                  <Button
+                    type="button"
+                    onClick={() => setStep(step + 1)}
+                    disabled={!validateStep(step)}
+                    className="flex items-center gap-2 bg-[#08AFF1] text-white hover:bg-[#0899d1]"
+                  >
+                    Next
+                    <ArrowRight className="w-4 h-4" />
+                  </Button>
+                ) : (
+                  <Button 
+                    type="submit" 
+                    disabled={!validateStep(step)}
+                    className="flex items-center gap-2 bg-[#AACF45] text-white hover:bg-[#99bb3f]"
+                  >
+                    Submit for Verification
+                  </Button>
+                )}
+              </div>
             </div>
-          </div>
 
-          {/* Step indicator text */}
-          <div className="text-center text-sm text-gray-500 mt-4">
-            Step {step} of 5: {
-              step === 1 ? "Initial Registration" :
-              step === 2 ? "Personal Details" :
-              step === 3 ? "Identity Documents" :
-              step === 4 ? "Address Details" :
-              "Bank Account Details"
-            }
-          </div>
-        </form>
-      </CardContent>
-    </Card>
+            {/* Step indicator text */}
+            <div className="text-center text-sm text-gray-500 mt-4">
+              Step {step} of 5: {
+                step === 1 ? "Initial Registration" :
+                step === 2 ? "Personal Details" :
+                step === 3 ? "Identity Documents" :
+                step === 4 ? "Address Details" :
+                "Bank Account Details"
+              }
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
     </TooltipProvider>
   );
 };
