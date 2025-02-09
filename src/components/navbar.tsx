@@ -59,7 +59,7 @@ export function Navbar() {
             >
               Contact
             </Link>
-            <Link to="/disclaimer">
+            <Link to="/registration" onClick={()=>window.scrollTo(0,0)}>
               <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
                 Get Started
               </button>
