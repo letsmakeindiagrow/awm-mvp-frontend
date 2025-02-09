@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Input } from "../components/ui/input";
 import { Button } from "../components/ui/button";
-import { Twitter, Linkedin, Youtube } from "lucide-react";
+import { Twitter, Linkedin, Instagram, Facebook } from "lucide-react";
 
 
 
@@ -79,16 +79,20 @@ export function Footer() {
           <div className="col-span-2 md:col-span-4 lg:col-span-1">
             <h4 className="text-lg font-medium text-white mb-4">Connect With Us</h4>
             <div className="flex space-x-4">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
+              <a href="https://twitter.com/aadyanviwealth" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
                 <Twitter className="h-6 w-6" />
                 <span className="sr-only">Twitter</span>
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
+              <a href="https://www.linkedin.com/company/aadyanviwealth/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
-                <Youtube className="h-6 w-6" />
+              <a href="https://www.instagram.com/aadyanviwealth" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
+                <Instagram className="h-6 w-6" />
+                <span className="sr-only">YouTube</span>
+              </a>
+              <a href="https://www.facebook.com/aadyanviwealth" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#08AFF1] transition-colors">
+                <Facebook className="h-6 w-6" />
                 <span className="sr-only">YouTube</span>
               </a>
             </div>
