@@ -231,15 +231,15 @@ const RegistrationForm: React.FC = () => {
       }
     };
 
-  // const handleVerify = (field: "email" | "mobile") => {
-  //   // Simulate verification process
-  //   const verificationField =
-  //     field === "email" ? "isEmailVerified" : "isMobileVerified";
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [verificationField]: true,
-  //   }));
-  // };
+  const handleVerify = (field: "email" | "mobile") => {
+    // Simulate verification process
+    const verificationField =
+      field === "email" ? "isEmailVerified" : "isMobileVerified";
+    setFormData((prev) => ({
+      ...prev,
+      [verificationField]: true,
+    }));
+  };
 
   const validateField = (name: string, value: string) => {
     let error = "";
@@ -360,8 +360,14 @@ const RegistrationForm: React.FC = () => {
         label="Mobile Number"
         value={formData.mobileNumber}
         // isVerified={formData.isMobileVerified}
-        onChange={handleInputChange}
-        // onVerify={() => handleVerify("mobile")}
+        isVerified={false}
+        onChange={(e) => {
+          setFormData((prevData) => ({
+            ...prevData,
+            mobileNumber: e.target.value,
+          }));
+        }}
+        onVerify={() => handleVerify("mobile")}
         name="mobileNumber"
         type="tel"
         error={errors.mobileNumber}
@@ -370,8 +376,14 @@ const RegistrationForm: React.FC = () => {
         label="Email"
         value={formData.email}
         // isVerified={formData.isEmailVerified}
-        onChange={handleInputChange}
-        // onVerify={() => handleVerify("email")}
+        isVerified={false}
+        onChange={(e) => {
+          setFormData((prevData) => ({
+            ...prevData,
+            email: e.target.value,
+          }));
+        }}
+        onVerify={() => handleVerify("email")}
         name="email"
         type="email"
         error={errors.email}
@@ -455,7 +467,16 @@ const RegistrationForm: React.FC = () => {
               id="panNumber"
               name="panNumber"
               value={formData.identityDetails.panNumber}
-              onChange={handleInputChange}
+              // onChange={handleInputChange}
+              onChange={(e) => {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  identityDetails: {
+                    ...prevData.identityDetails,
+                    panNumber: e.target.value,
+                  },
+                }));
+              }}
               required
               className={errors.panNumber ? "border-red-500" : ""}
             />
@@ -486,7 +507,15 @@ const RegistrationForm: React.FC = () => {
               id="aadharNumber"
               name="aadharNumber"
               value={formData.identityDetails.aadharNumber}
-              onChange={handleInputChange}
+              onChange={(e) => {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  identityDetails: {
+                    ...prevData.identityDetails,
+                    aadharNumber: e.target.value,
+                  },
+                }));
+              }}
               required
               className={errors.aadharNumber ? "border-red-500" : ""}
             />
@@ -509,7 +538,7 @@ const RegistrationForm: React.FC = () => {
               section: "identityDetails",
               field: "aadharFront",
             })}
-            onChange={formData.identityDetails.aadharFront}
+            file={formData.identityDetails.aadharFront}
           />
           <FileUploadBox
             label="Aadhar Back"
@@ -533,7 +562,15 @@ const RegistrationForm: React.FC = () => {
           id="line1"
           name="line1"
           value={formData.address.line1}
-          onChange={handleInputChange}
+          onChange={(e) => {
+            setFormData((prevData) => ({
+              ...prevData,
+              address: {
+                ...prevData.address,
+                line1: e.target.value,
+              },
+            }));
+          }}
           required
         />
       </div>
@@ -543,7 +580,15 @@ const RegistrationForm: React.FC = () => {
           id="line2"
           name="line2"
           value={formData.address.line2}
-          onChange={handleInputChange}
+          onChange={(e) => {
+            setFormData((prevData) => ({
+              ...prevData,
+              address: {
+                ...prevData.address,
+                line2: e.target.value,
+              },
+            }));
+          }}
         />
       </div>
       <div className="grid grid-cols-2 gap-4">
@@ -553,7 +598,15 @@ const RegistrationForm: React.FC = () => {
             id="city"
             name="city"
             value={formData.address.city}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              setFormData((prevData) => ({
+                ...prevData,
+                address: {
+                  ...prevData.address,
+                  city: e.target.value,
+                },
+              }));
+            }}
             required
           />
         </div>
@@ -564,7 +617,15 @@ const RegistrationForm: React.FC = () => {
               id="pincode"
               name="pincode"
               value={formData.address.pincode}
-              onChange={handleInputChange}
+              onChange={(e) => {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  address: {
+                    ...prevData.address,
+                    pincode: e.target.value,
+                  },
+                }));
+              }}
               required
               className={errors.pincode ? "border-red-500" : ""}
             />
@@ -595,7 +656,15 @@ const RegistrationForm: React.FC = () => {
               id="bankAccountNumber"
               name="bankAccountNumber"
               value={formData.bankDetails.bankAccountNumber}
-              onChange={handleInputChange}
+              onChange={(e) => {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  bankDetails: {
+                    ...prevData.bankDetails,
+                    bankAccountNumber: e.target.value,
+                  },
+                }));
+              }}
               required
               className={errors.bankAccountNumber ? "border-red-500" : ""}
             />
@@ -618,7 +687,15 @@ const RegistrationForm: React.FC = () => {
               id="ifscCode"
               name="ifscCode"
               value={formData.bankDetails.ifscCode}
-              onChange={handleInputChange}
+              onChange={(e) => {
+                setFormData((prevData) => ({
+                  ...prevData,
+                  bankDetails: {
+                    ...prevData.bankDetails,
+                    ifscCode: e.target.value,
+                  },
+                }));
+              }}
               required
               className={errors.ifscCode ? "border-red-500" : ""}
             />
@@ -640,7 +717,15 @@ const RegistrationForm: React.FC = () => {
             id="bankBranchName"
             name="bankBranchName"
             value={formData.bankDetails.bankBranchName}
-            onChange={handleInputChange}
+            onChange={(e) => {
+              setFormData((prevData) => ({
+                ...prevData,
+                bankDetails: {
+                  ...prevData.bankDetails,
+                  bankBranchName: e.target.value,
+                },
+              }));
+            }}
             required
           />
         </div>
