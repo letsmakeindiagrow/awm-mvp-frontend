@@ -146,7 +146,7 @@ const VerificationField: React.FC<VerificationFieldProps> = ({
   const handleVerifyClick = () => {
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
     setGeneratedOTP(otp);
-    console.log(`OTP for ${name}: ${otp}`);
+    alert(`OTP for ${name}: ${otp}`);
     setShowOTPDialog(true);
   };
 
