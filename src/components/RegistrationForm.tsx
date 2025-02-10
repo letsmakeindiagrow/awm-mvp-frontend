@@ -3,8 +3,18 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ArrowLeft, Upload, Check, AlertCircle } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Upload,
+  Check,
+  AlertCircle,
+} from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 interface FormData {
@@ -14,24 +24,27 @@ interface FormData {
   firstName: string;
   lastName: string;
   dateOfBirth: string;
-  panNumber: string;
-  aadharNumber: string;
-  line1: string;
-  line2: string;
-  city: string;
-  pincode: string;
-  bankAccountNumber: string;
-  ifscCode: string;
-  bankBranchName: string;
-  isEmailVerified: boolean;
-  isMobileVerified: boolean;
-}
-
-interface Documents {
-  panAttachment: File | null;
-  aadharFront: File | null;
-  aadharBack: File | null;
-  bankProof: File | null;
+  address: {
+    line1: string;
+    line2: string;
+    city: string;
+    pincode: string;
+  };
+  identityDetails: {
+    panNumber: string;
+    aadharNumber: string;
+    panAttachment: File | null;
+    aadharFront: File | null;
+    aadharBack: File | null;
+  };
+  bankDetails: {
+    bankAccountNumber: string;
+    ifscCode: string;
+    bankBranchName: string;
+    bankProof: File | null;
+  };
+  // isEmailVerified: boolean;
+  // isMobileVerified: boolean;
 }
 
 interface FileUploadBoxProps {
@@ -68,7 +81,9 @@ const FileUploadBox: React.FC<FileUploadBoxProps> = ({
       <Button
         type="button"
         variant="outline"
-        onClick={() => document.getElementById(label.replace(/\s+/g, ""))?.click()}
+        onClick={() =>
+          document.getElementById(label.replace(/\s+/g, ""))?.click()
+        }
       >
         {file ? "Change File" : "Choose File"}
       </Button>
@@ -85,7 +100,16 @@ const VerificationField: React.FC<{
   name: string;
   type?: string;
   error?: string;
-}> = ({ label, value, isVerified, onChange, onVerify, name, type = "text", error }) => (
+}> = ({
+  label,
+  value,
+  isVerified,
+  onChange,
+  onVerify,
+  name,
+  type = "text",
+  error,
+}) => (
   <div className="space-y-2">
     <Label htmlFor={name}>{label}</Label>
     <div className="flex gap-2">
@@ -96,7 +120,9 @@ const VerificationField: React.FC<{
           type={type}
           value={value}
           onChange={onChange}
-          className={isVerified ? "border-green-500" : error ? "border-red-500" : ""}
+          className={
+            isVerified ? "border-green-500" : error ? "border-red-500" : ""
+          }
           required
         />
         {error && (
@@ -137,24 +163,27 @@ const RegistrationForm: React.FC = () => {
     firstName: "",
     lastName: "",
     dateOfBirth: "",
-    panNumber: "",
-    aadharNumber: "",
-    line1: "",
-    line2: "",
-    city: "",
-    pincode: "",
-    bankAccountNumber: "",
-    ifscCode: "",
-    bankBranchName: "",
-    isEmailVerified: false,
-    isMobileVerified: false,
-  });
-
-  const [documents, setDocuments] = useState<Documents>({
-    panAttachment: null,
-    aadharFront: null,
-    aadharBack: null,
-    bankProof: null,
+    address: {
+      line1: "",
+      line2: "",
+      city: "",
+      pincode: "",
+    },
+    identityDetails: {
+      panNumber: "",
+      aadharNumber: "",
+      panAttachment: null,
+      aadharFront: null,
+      aadharBack: null,
+    },
+    bankDetails: {
+      bankAccountNumber: "",
+      ifscCode: "",
+      bankBranchName: "",
+      bankProof: null,
+    },
+    // isEmailVerified: boolean;
+    // isMobileVerified: boolean;
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -168,26 +197,49 @@ const RegistrationForm: React.FC = () => {
     validateField(name, value);
   };
 
+  type IdentityFileFields = "panAttachment" | "aadharFront" | "aadharBack";
+  type BankFileFields = "bankProof";
+
+  // Create a discriminated union for the different sections
+  type FileChangeSection =
+    | {
+        section: "identityDetails";
+        field: IdentityFileFields;
+      }
+    | {
+        section: "bankDetails";
+        field: BankFileFields;
+      };
+
   const handleFileChange =
-    (name: keyof Documents) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    (fileInfo: FileChangeSection) =>
+    (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
       if (file) {
-        console.log(`File selected for ${name}:`, file);
-        setDocuments((prev) => ({
+        console.log(
+          `File selected for ${fileInfo.section}.${fileInfo.field}:`,
+          file
+        );
+
+        setFormData((prev) => ({
           ...prev,
-          [name]: file,
+          [fileInfo.section]: {
+            ...prev[fileInfo.section],
+            [fileInfo.field]: file,
+          },
         }));
       }
     };
 
-  const handleVerify = (field: "email" | "mobile") => {
-    // Simulate verification process
-    const verificationField = field === "email" ? "isEmailVerified" : "isMobileVerified";
-    setFormData((prev) => ({
-      ...prev,
-      [verificationField]: true,
-    }));
-  };
+  // const handleVerify = (field: "email" | "mobile") => {
+  //   // Simulate verification process
+  //   const verificationField =
+  //     field === "email" ? "isEmailVerified" : "isMobileVerified";
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [verificationField]: true,
+  //   }));
+  // };
 
   const validateField = (name: string, value: string) => {
     let error = "";
@@ -247,45 +299,45 @@ const RegistrationForm: React.FC = () => {
       case 1:
         return Boolean(
           formData.mobileNumber &&
-          formData.email &&
-          formData.isEmailVerified &&
-          formData.isMobileVerified &&
-          !errors.mobileNumber &&
-          !errors.email
+            formData.email &&
+            // formData.isEmailVerified &&
+            // formData.isMobileVerified &&
+            !errors.mobileNumber &&
+            !errors.email
         );
       case 2:
         return Boolean(
           formData.firstName &&
-          formData.lastName &&
-          formData.dateOfBirth &&
-          !errors.firstName &&
-          !errors.lastName
+            formData.lastName &&
+            formData.dateOfBirth &&
+            !errors.firstName &&
+            !errors.lastName
         );
       case 3:
         return Boolean(
-          formData.panNumber &&
-          formData.aadharNumber &&
-          documents.panAttachment &&
-          documents.aadharFront &&
-          documents.aadharBack &&
-          !errors.panNumber &&
-          !errors.aadharNumber
+          formData.identityDetails.panNumber &&
+            formData.identityDetails.aadharNumber &&
+            formData.identityDetails.panAttachment &&
+            formData.identityDetails.aadharFront &&
+            formData.identityDetails.aadharBack &&
+            !errors.panNumber &&
+            !errors.aadharNumber
         );
       case 4:
         return Boolean(
-          formData.line1 &&
-          formData.city &&
-          formData.pincode &&
-          !errors.pincode
+          formData.address.line1 &&
+            formData.address.city &&
+            formData.address.pincode &&
+            !errors.pincode
         );
       case 5:
         return Boolean(
-          formData.bankAccountNumber &&
-          formData.ifscCode &&
-          formData.bankBranchName &&
-          documents.bankProof &&
-          !errors.bankAccountNumber &&
-          !errors.ifscCode
+          formData.bankDetails.bankAccountNumber &&
+            formData.bankDetails.ifscCode &&
+            formData.bankDetails.bankBranchName &&
+            formData.bankDetails.bankProof &&
+            !errors.bankAccountNumber &&
+            !errors.ifscCode
         );
       default:
         return false;
@@ -307,9 +359,9 @@ const RegistrationForm: React.FC = () => {
       <VerificationField
         label="Mobile Number"
         value={formData.mobileNumber}
-        isVerified={formData.isMobileVerified}
+        // isVerified={formData.isMobileVerified}
         onChange={handleInputChange}
-        onVerify={() => handleVerify("mobile")}
+        // onVerify={() => handleVerify("mobile")}
         name="mobileNumber"
         type="tel"
         error={errors.mobileNumber}
@@ -317,9 +369,9 @@ const RegistrationForm: React.FC = () => {
       <VerificationField
         label="Email"
         value={formData.email}
-        isVerified={formData.isEmailVerified}
+        // isVerified={formData.isEmailVerified}
         onChange={handleInputChange}
-        onVerify={() => handleVerify("email")}
+        // onVerify={() => handleVerify("email")}
         name="email"
         type="email"
         error={errors.email}
@@ -402,7 +454,7 @@ const RegistrationForm: React.FC = () => {
             <Input
               id="panNumber"
               name="panNumber"
-              value={formData.panNumber}
+              value={formData.identityDetails.panNumber}
               onChange={handleInputChange}
               required
               className={errors.panNumber ? "border-red-500" : ""}
@@ -421,8 +473,11 @@ const RegistrationForm: React.FC = () => {
         </div>
         <FileUploadBox
           label="PAN Card Attachment"
-          onChange={handleFileChange("panAttachment")}
-          file={documents.panAttachment}
+          onChange={handleFileChange({
+            section: "identityDetails",
+            field: "panAttachment",
+          })}
+          file={formData.identityDetails.panAttachment}
         />
         <div>
           <Label htmlFor="aadharNumber">Aadhar Number</Label>
@@ -430,7 +485,7 @@ const RegistrationForm: React.FC = () => {
             <Input
               id="aadharNumber"
               name="aadharNumber"
-              value={formData.aadharNumber}
+              value={formData.identityDetails.aadharNumber}
               onChange={handleInputChange}
               required
               className={errors.aadharNumber ? "border-red-500" : ""}
@@ -450,13 +505,19 @@ const RegistrationForm: React.FC = () => {
         <div className="grid grid-cols-2 gap-4">
           <FileUploadBox
             label="Aadhar Front"
-            onChange={handleFileChange("aadharFront")}
-            file={documents.aadharFront}
+            onChange={handleFileChange({
+              section: "identityDetails",
+              field: "aadharFront",
+            })}
+            onChange={formData.identityDetails.aadharFront}
           />
           <FileUploadBox
             label="Aadhar Back"
-            onChange={handleFileChange("aadharBack")}
-            file={documents.aadharBack}
+            onChange={handleFileChange({
+              section: "identityDetails",
+              field: "aadharBack",
+            })}
+            file={formData.identityDetails.aadharBack}
           />
         </div>
       </div>
@@ -471,7 +532,7 @@ const RegistrationForm: React.FC = () => {
         <Input
           id="line1"
           name="line1"
-          value={formData.line1}
+          value={formData.address.line1}
           onChange={handleInputChange}
           required
         />
@@ -481,7 +542,7 @@ const RegistrationForm: React.FC = () => {
         <Input
           id="line2"
           name="line2"
-          value={formData.line2}
+          value={formData.address.line2}
           onChange={handleInputChange}
         />
       </div>
@@ -491,7 +552,7 @@ const RegistrationForm: React.FC = () => {
           <Input
             id="city"
             name="city"
-            value={formData.city}
+            value={formData.address.city}
             onChange={handleInputChange}
             required
           />
@@ -502,7 +563,7 @@ const RegistrationForm: React.FC = () => {
             <Input
               id="pincode"
               name="pincode"
-              value={formData.pincode}
+              value={formData.address.pincode}
               onChange={handleInputChange}
               required
               className={errors.pincode ? "border-red-500" : ""}
@@ -533,7 +594,7 @@ const RegistrationForm: React.FC = () => {
             <Input
               id="bankAccountNumber"
               name="bankAccountNumber"
-              value={formData.bankAccountNumber}
+              value={formData.bankDetails.bankAccountNumber}
               onChange={handleInputChange}
               required
               className={errors.bankAccountNumber ? "border-red-500" : ""}
@@ -556,7 +617,7 @@ const RegistrationForm: React.FC = () => {
             <Input
               id="ifscCode"
               name="ifscCode"
-              value={formData.ifscCode}
+              value={formData.bankDetails.ifscCode}
               onChange={handleInputChange}
               required
               className={errors.ifscCode ? "border-red-500" : ""}
@@ -578,15 +639,18 @@ const RegistrationForm: React.FC = () => {
           <Input
             id="bankBranchName"
             name="bankBranchName"
-            value={formData.bankBranchName}
+            value={formData.bankDetails.bankBranchName}
             onChange={handleInputChange}
             required
           />
         </div>
         <FileUploadBox
           label="Bank Proof (Cancelled Cheque/Passbook/Statement)"
-          onChange={handleFileChange("bankProof")}
-          file={documents.bankProof}
+          onChange={handleFileChange({
+            section: "bankDetails",
+            field: "bankProof",
+          })}
+          file={formData.bankDetails.bankProof}
         />
       </div>
     </div>
@@ -603,108 +667,108 @@ const RegistrationForm: React.FC = () => {
       });
 
       // Append all files
-      Object.entries(documents).forEach(([key, file]) => {
-        if (file) {
-          submitData.append(key, file);
-        }
-      });
+      // Object.entries(documents).forEach(([key, file]) => {
+      //   if (file) {
+      //     submitData.append(key, file);
+      //   }
+      // });
 
       // Here you would typically send the data to your backend
       console.log("Submitting form data:", formData);
-      console.log("Submitting documents:", documents);
-      
+
       // Simulate sending verification email
       console.log("Sending verification email with form details...");
     }
   };
 
-
   return (
     <TooltipProvider>
-    <div className="min-h-screen p-6 bg-gray-200">
-    <Card className="w-full max-w-2xl mx-auto border-0 shadow-xl mt-10 mb-10 bg-[#E6F7FF]">
-
-        <CardContent className="pt-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Progress indicator */}
-            <div className="flex justify-between mb-8">
-              {[1, 2, 3, 4, 5].map((num) => (
-                <div key={num} className="flex items-center">
-                  <div
-                    className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
-                      step >= num ? "bg-[#08AFF1] text-white" : "bg-gray-200"
-                    }`}
-                  >
-                    {num}
-                  </div>
-                  {num < 5 && (
+      <div className="min-h-screen p-6 bg-gray-200">
+        <Card className="w-full max-w-2xl mx-auto border-0 shadow-xl mt-10 mb-10 bg-[#E6F7FF]">
+          <CardContent className="pt-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Progress indicator */}
+              <div className="flex justify-between mb-8">
+                {[1, 2, 3, 4, 5].map((num) => (
+                  <div key={num} className="flex items-center">
                     <div
-                      className={`w-16 h-1 ${
-                        step > num ? "bg-[#08AFF1]" : "bg-gray-200"
+                      className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-medium ${
+                        step >= num ? "bg-[#08AFF1] text-white" : "bg-gray-200"
                       }`}
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
+                    >
+                      {num}
+                    </div>
+                    {num < 5 && (
+                      <div
+                        className={`w-16 h-1 ${
+                          step > num ? "bg-[#08AFF1]" : "bg-gray-200"
+                        }`}
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
 
-            {/* Form steps remain the same */}
-            {step === 1 && renderStep1()}
-            {step === 2 && renderStep2()}
-            {step === 3 && renderStep3()}
-            {step === 4 && renderStep4()}
-            {step === 5 && renderStep5()}
+              {/* Form steps remain the same */}
+              {step === 1 && renderStep1()}
+              {step === 2 && renderStep2()}
+              {step === 3 && renderStep3()}
+              {step === 4 && renderStep4()}
+              {step === 5 && renderStep5()}
 
-            {/* Navigation buttons with updated colors */}
-            <div className="flex justify-between pt-6">
-              {step > 1 && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={() => setStep(step - 1)}
-                  className="flex items-center gap-2 border-[#AACF45] text-[#AACF45] hover:bg-[#AACF45] hover:text-white"
-                >
-                  <ArrowLeft className="w-4 h-4" />
-                  Previous
-                </Button>
-              )}
-              <div className="ml-auto">
-                {step < 5 ? (
+              {/* Navigation buttons with updated colors */}
+              <div className="flex justify-between pt-6">
+                {step > 1 && (
                   <Button
                     type="button"
-                    onClick={() => setStep(step + 1)}
-                    disabled={!validateStep(step)}
-                    className="flex items-center gap-2 bg-[#08AFF1] text-white hover:bg-[#0899d1]"
+                    variant="outline"
+                    onClick={() => setStep(step - 1)}
+                    className="flex items-center gap-2 border-[#AACF45] text-[#AACF45] hover:bg-[#AACF45] hover:text-white"
                   >
-                    Next
-                    <ArrowRight className="w-4 h-4" />
-                  </Button>
-                ) : (
-                  <Button 
-                    type="submit" 
-                    disabled={!validateStep(step)}
-                    className="flex items-center gap-2 bg-[#AACF45] text-white hover:bg-[#99bb3f]"
-                  >
-                    Submit for Verification
+                    <ArrowLeft className="w-4 h-4" />
+                    Previous
                   </Button>
                 )}
+                <div className="ml-auto">
+                  {step < 5 ? (
+                    <Button
+                      type="button"
+                      onClick={() => setStep(step + 1)}
+                      disabled={!validateStep(step)}
+                      className="flex items-center gap-2 bg-[#08AFF1] text-white hover:bg-[#0899d1]"
+                    >
+                      Next
+                      <ArrowRight className="w-4 h-4" />
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      disabled={!validateStep(step)}
+                      className="flex items-center gap-2 bg-[#AACF45] text-white hover:bg-[#99bb3f]"
+                    >
+                      Submit for Verification
+                    </Button>
+                  )}
+                </div>
               </div>
-            </div>
 
-            {/* Step indicator text */}
-            <div className="text-center text-sm text-gray-500 mt-4">
-              Step {step} of 5: {
-                step === 1 ? "Initial Registration" :
-                step === 2 ? "Personal Details" :
-                step === 3 ? "Identity Documents" :
-                step === 4 ? "Address Details" :
-                "Bank Account Details"
-              }
-            </div>
-          </form>
-        </CardContent>
-      </Card>
-    </div>
+              {/* Step indicator text */}
+              <div className="text-center text-sm text-gray-500 mt-4">
+                Step {step} of 5:{" "}
+                {step === 1
+                  ? "Initial Registration"
+                  : step === 2
+                  ? "Personal Details"
+                  : step === 3
+                  ? "Identity Documents"
+                  : step === 4
+                  ? "Address Details"
+                  : "Bank Account Details"}
+              </div>
+            </form>
+          </CardContent>
+        </Card>
+      </div>
     </TooltipProvider>
   );
 };
