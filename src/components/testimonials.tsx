@@ -1,5 +1,3 @@
-"use client";
-
 import { motion } from "framer-motion";
 
 const testimonials = [
@@ -25,7 +23,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <div className="py-24 bg-white bg-gray-200" id="testimonials">
+    <div className="py-24 bg-white" id="testimonials">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center"

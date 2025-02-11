@@ -5,15 +5,13 @@ import { BlogSection } from "@/components/blog-section";
 import { Stats } from "@/components/stats";
 import { Testimonials } from "@/components/testimonials";
 import { CTA } from "@/components/cta";
-import { Footer } from "@/components/footer";
-import BlobBackground from "@/components/BlobBackground"; // ✅ Import the Blob Background
+import { Footer } from "@/components/footer"; // ✅ Import the Blob Background
 import BlobStatic from "@/components/BlobStatic";
 export default function Home() {
   return (
     <div className="relative min-h-screen bg-white">
-      {/* <BlobBackground /> */}
       <BlobStatic />
-       <Navbar />
+      <Navbar />
       <Hero />
       <Features />
       <BlogSection />

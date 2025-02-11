@@ -3,8 +3,6 @@
 import { motion } from "framer-motion";
 import {
   LineChart,
-  Shield,
-  Target,
   Users,
   BarChart3,
   PieChart,

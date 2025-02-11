@@ -1,15 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  Users,
-  TrendingUp,
-  BarChart3,
-  PieChart,
-  DollarSign,
-  LineChart,
-  Layers,
-} from "lucide-react";
+import { Users, TrendingUp, BarChart3, Layers } from "lucide-react";
 
 export function Hero() {
   return (
