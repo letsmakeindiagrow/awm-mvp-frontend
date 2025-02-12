@@ -3,10 +3,27 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { ArrowRight, ArrowLeft, Upload, Check, AlertCircle, Edit2 } from "lucide-react";
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import axios from "axios";
+import {
+  ArrowRight,
+  ArrowLeft,
+  Upload,
+  Check,
+  AlertCircle,
+  // Edit2,
+} from "lucide-react";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { User, FileText, IdCard, Home, Banknote } from "lucide-react";
 
 interface FormData {
@@ -30,16 +47,44 @@ interface FormData {
 }
 
 interface Documents {
-  panAttachment: File | null;
-  aadharFront: File | null;
-  aadharBack: File | null;
-  bankProof: File | null;
+  panAttachment: string;
+  aadharFront: string;
+  aadharBack: string;
+  bankProof: string;
+}
+
+interface reqBody {
+  referralCode: string;
+  mobileNumber: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  dateOfBirth: string;
+  address: {
+    line1: string;
+    line2: string;
+    city: string;
+    pincode: string;
+  };
+  bankDetails: {
+    accountNumber: string;
+    ifscCode: string;
+    branchName: string;
+    proofAttachment: string;
+  };
+  identityDetails: {
+    panNumber: string;
+    panAttachment: string;
+    aadharNumber: string;
+    aadharFront: string;
+    aadharBack: string;
+  };
 }
 
 interface FileUploadBoxProps {
   label: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  file: File | null;
+  file: string;
   accept?: string;
 }
 
@@ -47,7 +92,7 @@ interface OTPDialogProps {
   isOpen: boolean;
   onClose: () => void;
   onVerify: (otp: string) => void;
-  type: 'email' | 'mobile';
+  type: "email" | "mobile";
 }
 
 const steps = [
@@ -70,7 +115,7 @@ const FileUploadBox: React.FC<FileUploadBoxProps> = ({
       {file ? (
         <div className="text-sm text-green-600 flex items-center justify-center gap-2">
           <Check className="w-4 h-4" />
-          {file.name}
+          {/* {file.name} */}
         </div>
       ) : (
         <Upload className="w-8 h-8 mx-auto text-gray-400" />
@@ -85,7 +130,9 @@ const FileUploadBox: React.FC<FileUploadBoxProps> = ({
       <Button
         type="button"
         variant="outline"
-        onClick={() => document.getElementById(label.replace(/\s+/g, ""))?.click()}
+        onClick={() =>
+          document.getElementById(label.replace(/\s+/g, ""))?.click()
+        }
       >
         {file ? "Change File" : "Choose File"}
       </Button>
@@ -93,28 +140,33 @@ const FileUploadBox: React.FC<FileUploadBoxProps> = ({
   </div>
 );
 
-const OTPDialog: React.FC<OTPDialogProps> = ({ isOpen, onClose, onVerify, type }) => {
-  const [otp, setOtp] = useState('');
-  const [generatedOTP, setGeneratedOTP] = useState('');
+const OTPDialog: React.FC<OTPDialogProps> = ({
+  isOpen,
+  onClose,
+  onVerify,
+  type,
+}) => {
+  const [otp, setOtp] = useState("");
+  // const [generatedOTP, setGeneratedOTP] = useState("");
 
-  React.useEffect(() => {
-    if (isOpen) {
-      const newOTP = Math.floor(100000 + Math.random() * 900000).toString();
-      setGeneratedOTP(newOTP);
-      console.log(`OTP for ${type}: ${newOTP}`);
-      alert(`OTP for ${type}: ${newOTP}`);
-    }
-  }, [isOpen, type]);
+  // React.useEffect(() => {
+  //   if (isOpen) {
+  //     const newOTP = Math.floor(100000 + Math.random() * 900000).toString();
+  //     setGeneratedOTP(newOTP);
+  //     console.log(`OTP for ${type}: ${newOTP}`);
+  //     alert(`OTP for ${type}: ${newOTP}`);
+  //   }
+  // }, [isOpen, type]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (otp === generatedOTP) {
-      onVerify(otp);
-      setOtp('');
-    } else {
-      alert('Invalid OTP');
-    }
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (otp === generatedOTP) {
+  //     onVerify(otp);
+  //     setOtp("");
+  //   } else {
+  //     alert("Invalid OTP");
+  //   }
+  // };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -122,7 +174,7 @@ const OTPDialog: React.FC<OTPDialogProps> = ({ isOpen, onClose, onVerify, type }
         <DialogHeader>
           <DialogTitle>Enter OTP sent to your {type}</DialogTitle>
         </DialogHeader>
-        <form onSubmit={handleSubmit} className="space-y-4">
+        <form className="space-y-4">
           <div>
             <Label htmlFor="otp">OTP</Label>
             <Input
@@ -135,7 +187,13 @@ const OTPDialog: React.FC<OTPDialogProps> = ({ isOpen, onClose, onVerify, type }
               placeholder="Enter 6-digit OTP"
             />
           </div>
-          <Button type="submit" className="w-full">Verify OTP</Button>
+          <Button
+            type="submit"
+            className="w-full"
+            onClick={() => onVerify(otp)}
+          >
+            Verify OTP
+          </Button>
         </form>
       </DialogContent>
     </Dialog>
@@ -146,8 +204,8 @@ const RegistrationForm: React.FC = () => {
   const [step, setStep] = useState(1);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
   const [showEmailOTP, setShowEmailOTP] = useState(false);
-  const [showMobileOTP, setShowMobileOTP] = useState(false);
-  const [isEditing, setIsEditing] = useState<'email' | 'mobile' | null>(null);
+  // const [showMobileOTP, setShowMobileOTP] = useState(false);
+  // const [isEditing, setIsEditing] = useState<"email" | "mobile" | null>(null);
   const [formData, setFormData] = useState<FormData>({
     referralCode: "",
     mobileNumber: "",
@@ -169,10 +227,10 @@ const RegistrationForm: React.FC = () => {
   });
 
   const [documents, setDocuments] = useState<Documents>({
-    panAttachment: null,
-    aadharFront: null,
-    aadharBack: null,
-    bankProof: null,
+    panAttachment: "",
+    aadharFront: "",
+    aadharBack: "",
+    bankProof: "",
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
@@ -186,14 +244,76 @@ const RegistrationForm: React.FC = () => {
     validateField(name, value);
   };
 
-  const handleFileChange = (name: keyof Documents) => (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setDocuments((prev) => ({
-        ...prev,
-        [name]: file,
-      }));
+  const handleFileChange =
+    (name: keyof Documents) => (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (file) {
+        setDocuments((prev) => ({
+          ...prev,
+          [name]: file,
+        }));
+      }
+    };
+
+  const createRequestBody = (
+    formData: FormData,
+    documents: Documents
+  ): reqBody => {
+    // Validate required documents
+    if (
+      !documents.panAttachment ||
+      !documents.aadharFront ||
+      !documents.aadharBack ||
+      !documents.bankProof
+    ) {
+      throw new Error("All documents are required");
     }
+
+    function convertToISO(dateString: any) {
+      const date = new Date(dateString);
+      return date.toISOString().split(".")[0] + "Z";
+    }
+
+    const requestBody: reqBody = {
+      mobileNumber: formData.mobileNumber,
+      email: formData.email,
+      firstName: formData.firstName,
+      lastName: formData.lastName,
+      referralCode: formData.referralCode,
+      dateOfBirth: convertToISO(formData.dateOfBirth),
+      address: {
+        line1: formData.line1,
+        line2: formData.line2,
+        city: formData.city,
+        pincode: formData.pincode,
+      },
+      bankDetails: {
+        accountNumber: formData.bankAccountNumber,
+        ifscCode: formData.ifscCode,
+        branchName: formData.bankBranchName,
+        proofAttachment: "https://github.com/",
+      },
+      identityDetails: {
+        panNumber: formData.panNumber,
+        panAttachment: "https://github.com/",
+        aadharNumber: formData.aadharNumber,
+        aadharFront: "https://github.com/",
+        aadharBack: "https://github.com/",
+      },
+    };
+
+    return requestBody;
+  };
+
+  const senReq = async () => {
+    const body = createRequestBody(formData, documents);
+    console.log(body);
+    const response = await axios.post(
+      "http://localhost:5001/api/v1/auth/register",
+      body
+    );
+    localStorage.setItem("userId", response.data.user.userId);
+    console.log(response);
   };
 
   const validateField = (name: string, value: string) => {
@@ -252,64 +372,81 @@ const RegistrationForm: React.FC = () => {
       case 1:
         return Boolean(
           formData.mobileNumber &&
-          formData.email &&
-          !errors.mobileNumber &&
-          !errors.email
+            formData.email &&
+            !errors.mobileNumber &&
+            !errors.email
         );
       case 2:
         return Boolean(
           formData.firstName &&
-          formData.lastName &&
-          formData.dateOfBirth &&
-          !errors.firstName &&
-          !errors.lastName
+            formData.lastName &&
+            formData.dateOfBirth &&
+            !errors.firstName &&
+            !errors.lastName
         );
       case 3:
         return Boolean(
           formData.panNumber &&
-          formData.aadharNumber &&
-          documents.panAttachment &&
-          documents.aadharFront &&
-          documents.aadharBack &&
-          !errors.panNumber &&
-          !errors.aadharNumber
+            formData.aadharNumber &&
+            documents.panAttachment &&
+            documents.aadharFront &&
+            documents.aadharBack &&
+            !errors.panNumber &&
+            !errors.aadharNumber
         );
       case 4:
         return Boolean(
-          formData.line1 &&
-          formData.city &&
-          formData.pincode &&
-          !errors.pincode
+          formData.line1 && formData.city && formData.pincode && !errors.pincode
         );
       case 5:
         return Boolean(
           formData.bankAccountNumber &&
-          formData.ifscCode &&
-          formData.bankBranchName &&
-          documents.bankProof &&
-          !errors.bankAccountNumber &&
-          !errors.ifscCode
+            formData.ifscCode &&
+            formData.bankBranchName &&
+            documents.bankProof &&
+            !errors.bankAccountNumber &&
+            !errors.ifscCode
         );
       default:
         return false;
     }
   };
 
-  const handleVerify = (field: "email" | "mobile") => {
-    const verificationField = field === "email" ? "isEmailVerified" : "isMobileVerified";
-    setFormData((prev) => ({
-      ...prev,
-      [verificationField]: true,
-    }));
-    if (field === "email") {
+  // const handleVerify = (field: "email" | "mobile") => {
+  //   const verificationField =
+  //     field === "email" ? "isEmailVerified" : "isMobileVerified";
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [verificationField]: true,
+  //   }));
+  //   if (field === "email") {
+  //     setShowEmailOTP(false);
+  //   } else {
+  //     // setShowMobileOTP(false);
+  //   }
+
+  //   if (
+  //     (field === "email" && formData.isMobileVerified) ||
+  //     (field === "mobile" && formData.isEmailVerified)
+  //   ) {
+  //     handleFinalSubmit();
+  //   }
+  // };
+
+  const handleVerify = async (otp: string) => {
+    const response = await axios.post(
+      "http://localhost:5001/api/v1/auth/verify-otp",
+      {
+        userId: localStorage.getItem("userId"),
+        otp: otp,
+      }
+    );
+
+    if (response.data.isVerified) {
+      console.log("OTP verified successfully");
       setShowEmailOTP(false);
     } else {
-      setShowMobileOTP(false);
-    }
-
-    if (field === "email" && formData.isMobileVerified ||
-      field === "mobile" && formData.isEmailVerified) {
-      handleFinalSubmit();
+      console.log("OTP verification failed");
     }
   };
 
@@ -329,7 +466,7 @@ const RegistrationForm: React.FC = () => {
 
       console.log("Initial form submission:", submitData);
       setIsFormSubmitted(true);
-      setShowMobileOTP(true);
+      // setShowMobileOTP(true);
       return true;
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -361,20 +498,22 @@ const RegistrationForm: React.FC = () => {
     }
   };
 
-  const handleEdit = (type: 'email' | 'mobile') => {
-    setIsEditing(type);
-    if (type === 'email') {
-      setFormData(prev => ({ ...prev, isEmailVerified: false }));
-    } else {
-      setFormData(prev => ({ ...prev, isMobileVerified: false }));
-    }
-  };
+  // const handleEdit = (type: "email" | "mobile") => {
+  //   setIsEditing(type);
+  //   if (type === "email") {
+  //     setFormData((prev) => ({ ...prev, isEmailVerified: false }));
+  //   } else {
+  //     setFormData((prev) => ({ ...prev, isMobileVerified: false }));
+  //   }
+  // };
 
-  const handleEditSubmit = () => {
-    setIsEditing(null);
-    validateField(isEditing === 'email' ? 'email' : 'mobileNumber', 
-                 isEditing === 'email' ? formData.email : formData.mobileNumber);
-  };
+  // const handleEditSubmit = () => {
+  //   setIsEditing(null);
+  //   validateField(
+  //     isEditing === "email" ? "email" : "mobileNumber",
+  //     isEditing === "email" ? formData.email : formData.mobileNumber
+  //   );
+  // };
 
   const renderStep1 = () => (
     <div className="space-y-6">
@@ -703,13 +842,14 @@ const RegistrationForm: React.FC = () => {
     </div>
   );
 
-
   const renderOTPVerification = () => (
     <div className="space-y-6">
-      <h2 className="text-xl font-semibold mb-4">Verify Your Contact Details</h2>
+      <h2 className="text-xl font-semibold mb-4">
+        Verify Your Contact Details
+      </h2>
       <div className="space-y-4">
-        <div className="flex items-center justify-between">
-          {isEditing === 'mobile' ? (
+        {/* <div className="flex items-center justify-between">
+          {isEditing === "mobile" ? (
             <div className="flex-1 mr-4">
               <Input
                 name="mobileNumber"
@@ -719,14 +859,16 @@ const RegistrationForm: React.FC = () => {
                 className={errors.mobileNumber ? "border-red-500" : ""}
               />
               {errors.mobileNumber && (
-                <p className="text-red-500 text-sm mt-1">{errors.mobileNumber}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.mobileNumber}
+                </p>
               )}
             </div>
           ) : (
             <span>Mobile Number: {formData.mobileNumber}</span>
           )}
           <div className="flex gap-2">
-            {isEditing === 'mobile' ? (
+            {isEditing === "mobile" ? (
               <Button
                 onClick={handleEditSubmit}
                 disabled={!!errors.mobileNumber}
@@ -737,7 +879,7 @@ const RegistrationForm: React.FC = () => {
             ) : (
               <>
                 <Button
-                  onClick={() => handleEdit('mobile')}
+                  onClick={() => handleEdit("mobile")}
                   className="bg-gray-600 text-white hover:bg-gray-700"
                 >
                   <Edit2 className="w-4 h-4" />
@@ -752,10 +894,10 @@ const RegistrationForm: React.FC = () => {
               </>
             )}
           </div>
-        </div>
+        </div> */}
 
         <div className="flex items-center justify-between">
-          {isEditing === 'email' ? (
+          {/* {isEditing === "email" ? (
             <div className="flex-1 mr-4">
               <Input
                 name="email"
@@ -770,9 +912,10 @@ const RegistrationForm: React.FC = () => {
             </div>
           ) : (
             <span>Email: {formData.email}</span>
-          )}
+          )} */}
+          <span>Email: {formData.email}</span>
           <div className="flex gap-2">
-            {isEditing === 'email' ? (
+            {/* {isEditing === "email" ? (
               <Button
                 onClick={handleEditSubmit}
                 disabled={!!errors.email}
@@ -783,7 +926,7 @@ const RegistrationForm: React.FC = () => {
             ) : (
               <>
                 <Button
-                  onClick={() => handleEdit('email')}
+                  onClick={() => handleEdit("email")}
                   className="bg-gray-600 text-white hover:bg-gray-700"
                 >
                   <Edit2 className="w-4 h-4" />
@@ -796,12 +939,19 @@ const RegistrationForm: React.FC = () => {
                   {formData.isEmailVerified ? "Verified ✓" : "Verify"}
                 </Button>
               </>
-            )}
+            )} */}
+            <Button
+              onClick={() => setShowEmailOTP(true)}
+              disabled={formData.isEmailVerified}
+              className="bg-blue-600 text-white hover:bg-blue-700"
+            >
+              {formData.isEmailVerified ? "Verified ✓" : "Verify"}
+            </Button>
           </div>
         </div>
-        {formData.isEmailVerified && formData.isMobileVerified && (
+        {formData.isEmailVerified && (
           <div className="mt-6 flex justify-center">
-            <Button 
+            <Button
               onClick={handleFinalSubmit}
               className="bg-green-600 text-white hover:bg-green-700 px-8"
             >
@@ -817,7 +967,7 @@ const RegistrationForm: React.FC = () => {
     <TooltipProvider>
       <div className="min-h-screen p-6 bg-gray-50">
         <div className="mb-8 flex justify-center">
-          <img 
+          <img
             src="/logo.png"
             alt="Company Logo"
             className="h-20 object-contain"
@@ -888,6 +1038,7 @@ const RegistrationForm: React.FC = () => {
                         <Button
                           type="submit"
                           disabled={!validateStep(step)}
+                          onClick={senReq}
                           className="flex items-center gap-2 bg-[#AACF45] text-white hover:bg-[#99bb3f]"
                         >
                           Submit and Proceed to Verification
@@ -901,26 +1052,24 @@ const RegistrationForm: React.FC = () => {
               )}
 
               <div className="text-center text-sm text-gray-500 mt-4">
-                {!isFormSubmitted ? (
-                  `Step ${step} of 5: ${steps[step - 1].label}`
-                ) : (
-                  "Final Step: Contact Verification"
-                )}
+                {!isFormSubmitted
+                  ? `Step ${step} of 5: ${steps[step - 1].label}`
+                  : "Final Step: Contact Verification"}
               </div>
             </form>
           </CardContent>
         </Card>
 
-        <OTPDialog
+        {/* <OTPDialog
           isOpen={showMobileOTP}
           onClose={() => setShowMobileOTP(false)}
           onVerify={(otp) => handleVerify("mobile")}
           type="mobile"
-        />
+        /> */}
         <OTPDialog
           isOpen={showEmailOTP}
           onClose={() => setShowEmailOTP(false)}
-          onVerify={(otp) => handleVerify("email")}
+          onVerify={(otp) => handleVerify(otp)}
           type="email"
         />
       </div>
