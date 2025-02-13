@@ -91,7 +91,7 @@ interface FileUploadBoxProps {
 interface OTPDialogProps {
   isOpen: boolean;
   onClose: () => void;
-  onVerify: (otp: string) => void;
+  // onVerify: (otp: string) => void;
   type: "email" | "mobile";
 }
 
@@ -143,10 +143,39 @@ const FileUploadBox: React.FC<FileUploadBoxProps> = ({
 const OTPDialog: React.FC<OTPDialogProps> = ({
   isOpen,
   onClose,
-  onVerify,
+  // onVerify,
   type,
 }) => {
   const [otp, setOtp] = useState("");
+  const handleVerify = async (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent form submission from refreshing the page
+
+    try {
+      const userId = localStorage.getItem("userId");
+
+      if (!userId) {
+        console.error("User ID not found in localStorage");
+        return;
+      }
+
+      const response = await axios.post(
+        "http://localhost:5001/api/v1/auth/verify-otp",
+        {
+          userId,
+          otp,
+        }
+      );
+
+      if (response.data) {
+        console.log("OTP verified successfully");
+        console.log(response);
+      }
+    } catch (error) {
+      console.error("OTP verification failed:", error);
+      // Handle error appropriately (show error message to user)
+    }
+  };
+
   // const [generatedOTP, setGeneratedOTP] = useState("");
 
   // React.useEffect(() => {
@@ -174,7 +203,7 @@ const OTPDialog: React.FC<OTPDialogProps> = ({
         <DialogHeader>
           <DialogTitle>Enter OTP sent to your {type}</DialogTitle>
         </DialogHeader>
-        <form className="space-y-4">
+        <form className="space-y-4" onSubmit={handleVerify}>
           <div>
             <Label htmlFor="otp">OTP</Label>
             <Input
@@ -190,7 +219,7 @@ const OTPDialog: React.FC<OTPDialogProps> = ({
           <Button
             type="submit"
             className="w-full"
-            onClick={() => onVerify(otp)}
+            // onClick={() => onVerify(otp)}
           >
             Verify OTP
           </Button>
@@ -312,8 +341,9 @@ const RegistrationForm: React.FC = () => {
       "http://localhost:5001/api/v1/auth/register",
       body
     );
-    localStorage.setItem("userId", response.data.user.userId);
-    console.log(response);
+    localStorage.setItem("userId", response.data.user.id);
+    // console.log(response);
+    console.log(response.data.user.id);
   };
 
   const validateField = (name: string, value: string) => {
@@ -433,22 +463,23 @@ const RegistrationForm: React.FC = () => {
   //   }
   // };
 
-  const handleVerify = async (otp: string) => {
-    const response = await axios.post(
-      "http://localhost:5001/api/v1/auth/verify-otp",
-      {
-        userId: localStorage.getItem("userId"),
-        otp: otp,
-      }
-    );
+  // const handleVerify = async (otp: string) => {
+  //   const response = await axios.post(
+  //     "http://localhost:5001/api/v1/auth/verify-otp",
+  //     {
+  //       userId: localStorage.getItem("userId"),
+  //       otp: otp,
+  //     }
+  //   );
 
-    if (response.data.isVerified) {
-      console.log("OTP verified successfully");
-      setShowEmailOTP(false);
-    } else {
-      console.log("OTP verification failed");
-    }
-  };
+  //   if (response.data.isVerified) {
+  //     console.log("OTP verified successfully");
+  //     console.log(response);
+  //     setShowEmailOTP(false);
+  //   } else {
+  //     console.log("OTP verification failed");
+  //   }
+  // };
 
   const handleInitialSubmit = async () => {
     try {
@@ -1069,7 +1100,7 @@ const RegistrationForm: React.FC = () => {
         <OTPDialog
           isOpen={showEmailOTP}
           onClose={() => setShowEmailOTP(false)}
-          onVerify={(otp) => handleVerify(otp)}
+          // onVerify={(otp) => handleVerify(otp)}
           type="email"
         />
       </div>
