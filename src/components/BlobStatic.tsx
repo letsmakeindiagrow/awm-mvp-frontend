@@ -13,7 +13,7 @@ const BlobStatic: React.FC = () => {
         {/* Vertical green blobs */}
         <path
           d="M-20 -20 C30 0, 60 40, 80 20 S120 40, 140 20 S160 50, 180 30 V-50 H-50 Z"
-          fill="rgba(170, 207, 69, 0.2)"
+          fill="rgba(170, 207, 69, 0.4)"
         />
 
         <path

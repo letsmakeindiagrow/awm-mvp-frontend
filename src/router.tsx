@@ -3,6 +3,7 @@ import Home from "./pages/home";
 import Disclaimer from "./pages/disclaimer"; // Import Disclaimer page
 import App from "./App";
 import Registration from "./pages/registration";
+import AboutPage from "./pages/about";
 
 export const appRouter = createBrowserRouter([
   {
@@ -11,7 +12,8 @@ export const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> }, // Home page
       { path: "/disclaimer", element: <Disclaimer /> }, // Register page
-      {path: "/registration", element: <Registration />}  
+      {path: "/registration", element: <Registration />} ,
+      {path: "/about",element: <AboutPage />}
     ],
   },
 ]);
