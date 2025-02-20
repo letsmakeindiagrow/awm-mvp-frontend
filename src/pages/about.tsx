@@ -1,10 +1,8 @@
-import React from "react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import AboutHero from "@/components/AboutHero";
 import TeamSection from "@/components/TeamSection";
 import TechnologyVision from "@/components/TechnologyVision";
-import BlobStatic from "@/components/BlobStatic";
 
 const AboutPage = () => {
   return (
