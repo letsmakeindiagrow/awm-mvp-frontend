@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import TeamMemberCard from "./TeamMemberCard";
-import { TeamMember } from "../types"; // Define this type if not already defined
+import { TeamMember } from "../types";
 
 const teamData: { [key: string]: TeamMember[] } = {
   leadership: [
-    { name: "Alice Johnson", role: "CEO", imageUrl: "/images/alice.jpg", bio: "Alice's bio", background: ["Business", "Leadership"], achievements: ["Founder of Company X"] },
-    { name: "Bob Smith", role: "CTO", imageUrl: "/images/bob.jpg", bio: "Bob's bio", background: ["Tech", "Management"], achievements: ["Built platform Y"] },
+    { name: "Atul Shukla", role: "Founder & CEO", imageUrl: "./atul_shukla.webp", bio: "atulshukla@aadyanvi.com", background: ["Business", "Leadership"], achievements: ["Founder of Aadyanvi Wealth Management"] },
   ],
   advisors: [
-    { name: "Dr. John Doe", role: "Senior Advisor", imageUrl: "/images/john.jpg", bio: "Dr. John's bio", background: ["Consulting"], achievements: [] },
-    { name: "Jane Wilson", role: "Strategy Consultant", imageUrl: "/images/jane.jpg", bio: "Jane's bio", background: ["Strategy"], achievements: [] },
+    { name: "Rishabh Patidar", role: "Senior Advisor", imageUrl: "./rishabh.jpeg", bio: "rishabh.patidar@aadyanvi.com", background: ["Consulting"], achievements: [] },
   ],
   developers: [
-    { name: "Charlie Brown", role: "Frontend Developer", imageUrl: "/images/charlie.jpg", bio: "Charlie's bio", background: ["Frontend"], achievements: ["Developed App X"] },
-    { name: "Diana Prince", role: "Backend Developer", imageUrl: "/images/diana.jpg", bio: "Diana's bio", background: ["Backend"], achievements: [] },
+    { name: "Pranay Sharma", role: "Python & Full Stack Developer", imageUrl: "./pranay.jpeg", bio: "pranay.sharma@aadyanvi.com", background: ["Python", "Full Stack"], achievements: [] },
+    { name: "Pushkar Aggarwal", role: "Python & Full Stack Developer", imageUrl: "./pushkar.jpeg", bio: "pushkar.aggarwal@aadyanvi.com", background: ["Python", "Full Stack"], achievements: [] },
   ],
 };
 
@@ -22,52 +20,32 @@ const TeamSection = () => {
   const [activeTab, setActiveTab] = useState("leadership");
   const [selectedMember, setSelectedMember] = useState<string | null>(null);
 
-  // Toggle the selected member for detailed view
   const toggleMemberDetail = (name: string) => {
     setSelectedMember((prev) => (prev === name ? null : name));
   };
 
   return (
-    <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-12">
-      <TabsList className="grid w-full grid-cols-3">
-        <TabsTrigger value="leadership">Leadership Team</TabsTrigger>
-        <TabsTrigger value="advisors">Advisory Board</TabsTrigger>
-        <TabsTrigger value="developers">Technology Team</TabsTrigger>
-      </TabsList>
-      
-      {/* Leadership Tab */}
-      <TabsContent value="leadership">
-        <div className="grid md:grid-cols-3 gap-6">
-          {teamData.leadership.map((member) => (
-            <div key={member.name} onClick={() => toggleMemberDetail(member.name)}>
-              <TeamMemberCard member={member} variant={selectedMember === member.name ? "detailed" : "default"} />
-            </div>
-          ))}
-        </div>
-      </TabsContent>
+    <div className="flex flex-col items-center">
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-12 w-full max-w-4xl">
+        <TabsList className="flex justify-center space-x-4 bg-gray-100 p-2 rounded-lg shadow-md">
+          <TabsTrigger value="leadership">Leadership Team</TabsTrigger>
+          <TabsTrigger value="advisors">Advisory Board</TabsTrigger>
+          <TabsTrigger value="developers">Development Team</TabsTrigger>
+        </TabsList>
 
-      {/* Advisors Tab */}
-      <TabsContent value="advisors">
-        <div className="grid md:grid-cols-2 gap-6">
-          {teamData.advisors.map((member) => (
-            <div key={member.name} onClick={() => toggleMemberDetail(member.name)}>
-              <TeamMemberCard member={member} variant={selectedMember === member.name ? "detailed" : "default"} />
+        {Object.keys(teamData).map((key) => (
+          <TabsContent key={key} value={key}>
+            <div className="flex flex-wrap justify-center gap-8 mt-6">
+              {teamData[key].map((member) => (
+                <div key={member.name} onClick={() => toggleMemberDetail(member.name)} className="w-80 flex justify-center">
+                  <TeamMemberCard member={member} variant={selectedMember === member.name ? "detailed" : "default"} className="shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105" />
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-      </TabsContent>
-
-      {/* Developers Tab */}
-      <TabsContent value="developers">
-        <div className="grid md:grid-cols-3 gap-6">
-          {teamData.developers.map((member) => (
-            <div key={member.name} onClick={() => toggleMemberDetail(member.name)}>
-              <TeamMemberCard member={member} variant={selectedMember === member.name ? "detailed" : "default"} />
-            </div>
-          ))}
-        </div>
-      </TabsContent>
-    </Tabs>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </div>
   );
 };
 

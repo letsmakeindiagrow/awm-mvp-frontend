@@ -14,7 +14,7 @@ const TeamMemberCard: React.FC<{
   >
     <CardHeader className="flex flex-col items-center">
       <Avatar className="w-32 h-32 mb-4 border-4 border-[#AACF45]">
-        <AvatarImage src={member.image} alt={member.name} />
+        <AvatarImage src={member.imageUrl} alt={member.name} />
         <AvatarFallback>
           {member.name.split(" ").map((n) => n[0]).join("")}
         </AvatarFallback>
