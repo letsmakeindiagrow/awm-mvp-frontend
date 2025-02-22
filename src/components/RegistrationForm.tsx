@@ -168,6 +168,7 @@ const OTPDialog: React.FC<OTPDialogProps> = ({
 
       if (response.data) {
         console.log("OTP verified successfully");
+        onClose();
         console.log(response);
       }
     } catch (error) {
