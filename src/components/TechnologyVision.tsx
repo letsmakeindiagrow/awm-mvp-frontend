@@ -1,5 +1,3 @@
-import React from "react";
-
 const TechnologyVision = () => {
   return (
     <section className="bg-white rounded-lg shadow-md p-8 text-center">
