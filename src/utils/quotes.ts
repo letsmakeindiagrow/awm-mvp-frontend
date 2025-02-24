@@ -1,0 +1,48 @@
+export interface Quote {
+    text: string;
+    author: string;
+}
+
+export const quotes: Quote[] = [
+    { text: "Market fluctuations are your friend, not enemy.", author: "Warren Buffett" },
+    { text: "The goal of a successful trader is to make the best trades. Money is secondary.", author: "Alexander Elder" },
+    { text: "The four most dangerous words in investing are: This time it’s different.", author: "Sir John Templeton" },
+    { text: "In the short run, the market is a voting machine, but in the long run, it is a weighing machine.", author: "Benjamin Graham" },
+    { text: "Someone is sitting in the shade of a tree today because someone planted a tree a long time ago.", author: "Warren Buffett" },
+    { text: "The stock market is filled with individuals who know the price of everything, but the value of nothing.", author: "Philip Fisher" },
+    { text: "An investment in knowledge pays the best interest.", author: "Benjamin Franklin" },
+    { text: "It's not whether you're right or wrong that's important, but how much money you make when you're right and how much you lose when you're wrong.", author: "George Soros" },
+    { text: "Given a ten percent chance of a 100 times payoff, you should take that bet every time.", author: "Jeff Bezos" },
+    { text: "Don't look for the needle in the haystack. Just buy the haystack!", author: "John Bogle" },
+    { text: "I don't look to jump over seven-foot bars; I look around for one-foot bars that I can step over.", author: "Warren Buffett" },
+    { text: "In investing, what is comfortable is rarely profitable.", author: "Robert Arnott" },
+    { text: "Buy not on optimism, but on arithmetic.", author: "Benjamin Graham" },
+    { text: "Buy when everyone else is selling and hold when everyone else is buying.", author: "Jean Paul Getty" },
+    { text: "Buy when there’s blood in the streets, even if the blood is your own.", author: "Jim Rogers" },
+    { text: "Courage taught me no matter how bad a crisis gets … any sound investment will eventually pay off.", author: "Carlos Slim Helu" },
+    { text: "Do you know the only thing that gives me pleasure? It’s to see my dividends coming in.", author: "John D. Rockefeller" },
+    { text: "Don’t be afraid to be a loner, but be sure that you are correct in your judgment.", author: "Walter J. Schloss" },
+    { text: "Earnings don’t move the overall market; it’s the Federal Reserve Board… focus on central banks.", author: "Stanley Druckenmiller" },
+    { text: "Every bubble ends with the same words: ‘This time is different.’", author: "Jeremy Grantham" },
+    { text: "Far more money has been lost by investors preparing for corrections than has been lost in corrections themselves.", author: "Peter Lynch" },
+    { text: "Financial peace isn’t the acquisition of stuff; it’s learning to live on less than you make so you can give money back and invest.", author: "Dave Ramsey" },
+    { text: "In this business, if you’re good, you’re right six times out of ten.", author: "Peter Lynch" },
+    { text: "Inflation is when you pay fifteen dollars for the ten-dollar haircut you used to get for five dollars when you had hair.", author: "Rudy Havenstein" },
+    { text: "Investing is a business where you can look very silly for a long period of time before you are proven right.", author: "Bill Ackman" },
+    { text: "The most important quality for an investor is temperament, not intellect.", author: "Warren Buffett" },
+    { text: "The most important question to ask before buying a stock is why it’s mispriced.", author: "Michael Burry" },
+    { text: "The most important rule of trading is to play great defense, not great offense.", author: "Paul Tudor Jones" },
+    { text: "The person who turns over the most rocks wins the game.", author: "Peter Lynch" },
+    { text: "The single greatest edge an investor can have is a long-term orientation.", author: "Seth Klarman" },
+    { text: "The stock market is a device for transferring money from the impatient to the patient.", author: "Warren Buffett" },
+    { text: "The trick is not to learn to trust your gut feelings but rather to discipline yourself to ignore them.", author: "Peter Lynch" },
+    { text: "The two greatest enemies of equity fund investors are expenses and emotions.", author: "John Bogle" },
+    { text: "The whole secret to winning big in the stock market is not to be right all the time but to lose the least amount possible when you’re wrong.", author: "William J. O’Neil" },
+    { text: "There are old traders and there are bold traders, but there are very few old, bold traders.", author: "Ed Seykota" },
+    { text: "There are two hedges I know of; one is cash and the other is knowledge.", author: "Bruce Berkowitz" },
+    { text: "To be a successful business owner and investor, you have to be emotionally neutral to winning and losing.", author: "Robert Kiyosaki" },
+    { text: "Waiting helps you as an investor; many people just can't stand to wait.", author: "Unknown" },
+    { text: "Activity is the enemy of investment returns.", author: "Warren Buffett" },
+    { text: "A prudent investor should always keep some dry powder in reserve.", author: "Fritz Leutwiler" },
+    { text: "Ultimately success boils down to the mindset approach taken towards challenges faced along the path towards financial independence!", author: "Unknown" }
+];
