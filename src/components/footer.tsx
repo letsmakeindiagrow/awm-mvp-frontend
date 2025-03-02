@@ -74,8 +74,8 @@ export function Footer() {
           </div>
 
           {/* Indicator Algo */}
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">
+          <div className="pl-12">
+            <h4 className=" text-lg font-medium text-white mb-4">
               Market Entities
             </h4>
             <ul className="space-y-3">
@@ -133,7 +133,7 @@ export function Footer() {
           </div>
 
           {/* Discretionary & Community */}
-          <div>
+          <div className="pl-10">
             <h4 className="text-lg font-medium text-white mb-4">Exchanges</h4>
             <ul className="space-y-3">
               <li>
@@ -170,7 +170,7 @@ export function Footer() {
           </div>
 
           {/* Resources & Company */}
-          <div>
+          <div className="" >
             <h4 className="text-lg font-medium text-white mb-4">Company</h4>
             <ul className="space-y-3">
               <li>
@@ -277,17 +277,17 @@ export function Footer() {
         </div>
 
         {/* Copyright Section */}
-        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-center items-center gap-4">
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-gray-400">
             Copyright © {new Date().getFullYear()} Aadyanvi Wealth. All rights
             reserved.
           </p>
-          {/* <div className="flex gap-6 text-sm">
+          <div className="flex gap-6 text-sm">
             <Link to="/disclaimer" onClick={()=>window.scrollTo(0,0)} className="text-gray-400 hover:text-[#08AFF1] transition-colors">Disclaimer</Link>
             <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Terms of Use</Link>
             <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
-          </div> */}
+          </div>
         </div>
       </div>
     </footer>
