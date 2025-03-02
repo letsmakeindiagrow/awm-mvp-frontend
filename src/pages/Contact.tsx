@@ -17,7 +17,7 @@ const Contact = () => {
           {/* Page header */}
           <div className="text-center mb-16 md:mb-24">
             <h1
-              className="text-4xl md:text-5xl font-bold text-[#AACF45] mb-4 animate-fade-in"
+              className="mt-10 text-4xl md:text-5xl font-bold text-[#AACF45] mb-4 animate-fade-in"
               style={{ animationDelay: "0.1s" }}
             >
               We're Here to Help
