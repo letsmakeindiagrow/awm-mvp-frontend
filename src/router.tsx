@@ -4,8 +4,9 @@ import Disclaimer from "./pages/disclaimer"; // Import Disclaimer page
 import App from "./App";
 import Registration from "./pages/registration";
 import AboutPage from "./pages/about";
-import Login from "./pages/login"
+import Login from "./pages/login";
 import ComingSoonPage from "./pages/comingsoon";
+import Contact from "./pages/Contact";
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -13,10 +14,11 @@ export const appRouter = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> }, // Home page
       { path: "/disclaimer", element: <Disclaimer /> }, // Register page
-      {path: "/registration", element: <Registration />} ,
-      {path: "/about",element: <AboutPage />},
-      {path: "/login",element:<Login />},
-      {path: "/comingsoon",element:<ComingSoonPage />},
+      { path: "/registration", element: <Registration /> },
+      { path: "/about", element: <AboutPage /> },
+      { path: "/login", element: <Login /> },
+      { path: "/comingsoon", element: <ComingSoonPage /> },
+      { path: "/contact", element: <Contact /> },
     ],
   },
 ]);
