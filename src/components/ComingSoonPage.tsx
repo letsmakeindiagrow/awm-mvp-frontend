@@ -1,8 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Mail, ArrowRight, Twitter, Instagram, Linkedin, Facebook } from 'lucide-react';
+import { useState, useEffect } from "react";
+import {
+  Mail,
+  ArrowRight,
+  Twitter,
+  Instagram,
+  Linkedin,
+  Facebook,
+} from "lucide-react";
 
 const ComingSoonPage = () => {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const targetDate = new Date("2025-03-30T00:00:00").getTime();
 
@@ -32,11 +39,11 @@ const ComingSoonPage = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const handleSubscribe = (e) => {
+  const handleSubscribe = (e: React.FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);
-      setEmail('');
+      setEmail("");
       setTimeout(() => setIsSubscribed(false), 3000);
     }
   };
@@ -49,30 +56,40 @@ const ComingSoonPage = () => {
         </h1>
 
         <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto">
-          Our team is working hard to bring you something amazing. We'll be launching soon, so please check back or subscribe to get notified.
+          Our team is working hard to bring you something amazing. We'll be
+          launching soon, so please check back or subscribe to get notified.
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-          {[{ label: 'Days', value: timeLeft.days },
-            { label: 'Hours', value: timeLeft.hours },
-            { label: 'Minutes', value: timeLeft.minutes },
-            { label: 'Seconds', value: timeLeft.seconds }].map((item) => (
+          {[
+            { label: "Days", value: timeLeft.days },
+            { label: "Hours", value: timeLeft.hours },
+            { label: "Minutes", value: timeLeft.minutes },
+            { label: "Seconds", value: timeLeft.seconds },
+          ].map((item) => (
             <div key={item.label} className="bg-white rounded-lg shadow-md p-4">
-              <div className="text-3xl sm:text-4xl font-bold text-[#08AFF1]">{item.value}</div>
+              <div className="text-3xl sm:text-4xl font-bold text-[#08AFF1]">
+                {item.value}
+              </div>
               <div className="text-gray-500">{item.label}</div>
             </div>
           ))}
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
-          <h2 className="text-2xl font-semibold mb-4">Get notified when we launch</h2>
+          <h2 className="text-2xl font-semibold mb-4">
+            Get notified when we launch
+          </h2>
 
           {isSubscribed ? (
             <div className="flex items-center justify-center space-x-2 text-[#AACF45] font-medium">
               <span>Thanks for subscribing! We'll be in touch soon.</span>
             </div>
           ) : (
-            <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3">
+            <form
+              onSubmit={handleSubscribe}
+              className="flex flex-col sm:flex-row gap-3"
+            >
               <div className="flex-grow relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
@@ -96,13 +113,32 @@ const ComingSoonPage = () => {
 
         <div className="text-gray-500">
           <p className="mb-6">
-            Want to know more about what we're building? Follow us on social media for updates.
+            Want to know more about what we're building? Follow us on social
+            media for updates.
           </p>
           <div className="flex justify-center space-x-6">
-            {[{ name: 'Twitter', icon: Twitter, link: 'https://twitter.com/aadyanviwealth' },
-              { name: 'Instagram', icon: Instagram, link: 'https://www.instagram.com/aadyanviwealth' },
-              { name: 'Facebook', icon: Facebook, link: 'https://www.facebook.com/aadyanviwealth' },
-              { name: 'LinkedIn', icon: Linkedin, link: 'https://www.linkedin.com/company/aadyanviwealth/' }].map((platform) => (
+            {[
+              {
+                name: "Twitter",
+                icon: Twitter,
+                link: "https://twitter.com/aadyanviwealth",
+              },
+              {
+                name: "Instagram",
+                icon: Instagram,
+                link: "https://www.instagram.com/aadyanviwealth",
+              },
+              {
+                name: "Facebook",
+                icon: Facebook,
+                link: "https://www.facebook.com/aadyanviwealth",
+              },
+              {
+                name: "LinkedIn",
+                icon: Linkedin,
+                link: "https://www.linkedin.com/company/aadyanviwealth/",
+              },
+            ].map((platform) => (
               <a
                 key={platform.name}
                 href={platform.link}
