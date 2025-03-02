@@ -35,7 +35,7 @@ export function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/features" className="text-gray-700 hover:text-[#AACF45] transition-colors">Features</Link>
+            <Link to="/comingsoon" className="text-gray-700 hover:text-[#AACF45] transition-colors">Features</Link>
             <Link to="/about" onClick={() => window.scrollTo(0, 0)} className="text-gray-700 hover:text-[#AACF45] transition-colors">About</Link>
             <Link to="#testimonials" className="text-gray-700 hover:text-[#AACF45] transition-colors">Testimonials</Link>
             <Link to="#contact" className="text-gray-700 hover:text-[#AACF45] transition-colors">Contact</Link>

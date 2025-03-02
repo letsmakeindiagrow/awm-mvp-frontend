@@ -8,25 +8,34 @@ const teamData: TeamMember[] = [
   {
     name: "Atul Shukla",
     role: "Founder & CEO",
-    imageUrl: "./atul_shukla.webp",
+    imageUrl: "./Atul.jpg",
+    bio: "Atul is a seasoned derivatives professional with over 13 years of expertise in the Indian capital markets. He founded Aadyanvi Wealth Management to empower retail traders with sustainable wealth creation strategies.",
+  },
+  {
+    name: "Puja Shukla",
+    role: "Co-Founder and Philanthropist",
+    imageUrl: "./Puja.jpg",
+    bio: "Pooja Shukla is a dedicated philanthropist with a strong background in Sociology and Philosophy. She focuses on community empowerment and financial literacy.",
   },
   {
     name: "Rishabh Patidar",
-    role: "Senior Advisor",
-    imageUrl: "./rishabh.jpeg",
+    role: "Senior Research Analyst (Equity)",
+    imageUrl: "./Rishabh.jpg",
+    bio: "Rishabh Patidar is a Senior Research Analyst specializing in equity research and sector analysis. He holds a Master’s degree in Chemical Engineering from IIT Gandhinagar.",
   },
   {
     name: "Pranay Sharma",
-    role: "Python & Full Stack Developer",
+    role: "Tech. Developer",
     imageUrl: "./pranay.jpeg",
+    bio: "Pranay is a skilled developer with a passion for building scalable and efficient systems.",
   },
   {
     name: "Pushkar Aggarwal",
-    role: "Python & Full Stack Developer",
+    role: "Tech. Developer",
     imageUrl: "./pushkar.jpeg",
+    bio: "Pushkar is an expert in Python and full-stack development, with a focus on delivering high-quality solutions.",
   },
 ];
-
 const TeamSection = () => {
   const settings = {
     dots: true,
@@ -56,10 +65,7 @@ const TeamSection = () => {
       <Slider {...settings} className="w-full max-w-5xl">
         {teamData.map((member) => (
           <div key={member.name} className="px-6">
-            <TeamMemberCard
-              member={member}
-              className="shadow-xl rounded-2xl overflow-hidden transform transition duration-300 hover:scale-110 bg-white p-6 text-center text-lg font-medium"
-            />
+            <TeamMemberCard member={member} />
           </div>
         ))}
       </Slider>
