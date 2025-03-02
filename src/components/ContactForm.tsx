@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -71,10 +70,10 @@ export function ContactForm() {
   }
 
   return (
-    <div className="rounded-2xl bg-white shadow-md border border-brand-light/30 p-6 sm:p-8 md:p-10 animate-scale-in w-full">
-      <div className="mb-6">
-        <h2 className="text-3xl font-medium text-brand-dark mb-2">Send Us a Message</h2>
-        <p className="text-gray-600">Fill out the form below, and we'll respond promptly.</p>
+    <div className="rounded-2xl bg-white shadow-lg border border-gray-100 p-6 sm:p-8 md:p-10 animate-scale-in w-full max-w-2xl mx-auto">
+      <div className="mb-8 text-center">
+        <h2 className="text-4xl font-bold text-[#08AFF1] mb-3">Send Us a Message</h2>
+        <p className="text-gray-600 text-lg">Fill out the form below, and we'll respond promptly.</p>
       </div>
       
       <Form {...form}>
@@ -85,15 +84,15 @@ export function ContactForm() {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">Name</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">Name</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="Your name" 
-                      className="rounded-xl border-gray-300 focus:border-brand-primary focus:ring-brand-primary/20"
+                      className="rounded-xl border-gray-300 focus:border-[#08AFF1] focus:ring-[#08AFF1]/20 transition-all"
                       {...field} 
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-500" />
                 </FormItem>
               )}
             />
@@ -103,16 +102,16 @@ export function ContactForm() {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="text-gray-700">Email</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">Email</FormLabel>
                   <FormControl>
                     <Input 
                       placeholder="email@example.com" 
                       type="email"
-                      className="rounded-xl border-gray-300 focus:border-brand-primary focus:ring-brand-primary/20"
+                      className="rounded-xl border-gray-300 focus:border-[#08AFF1] focus:ring-[#08AFF1]/20 transition-all"
                       {...field} 
                     />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-red-500" />
                 </FormItem>
               )}
             />
@@ -123,15 +122,15 @@ export function ContactForm() {
             name="subject"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700">Subject</FormLabel>
+                <FormLabel className="text-gray-700 font-medium">Subject</FormLabel>
                 <FormControl>
                   <Input 
                     placeholder="How can we help you?" 
-                    className="rounded-xl border-gray-300 focus:border-brand-primary focus:ring-brand-primary/20"
+                    className="rounded-xl border-gray-300 focus:border-[#08AFF1] focus:ring-[#08AFF1]/20 transition-all"
                     {...field} 
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-red-500" />
               </FormItem>
             )}
           />
@@ -141,15 +140,15 @@ export function ContactForm() {
             name="message"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-gray-700">Message</FormLabel>
+                <FormLabel className="text-gray-700 font-medium">Message</FormLabel>
                 <FormControl>
                   <Textarea 
                     placeholder="Tell us about your inquiry..." 
-                    className="h-32 rounded-xl border-gray-300 focus:border-brand-primary focus:ring-brand-primary/20 resize-none"
+                    className="h-40 rounded-xl border-gray-300 focus:border-[#08AFF1] focus:ring-[#08AFF1]/20 resize-none transition-all"
                     {...field} 
                   />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-red-500" />
               </FormItem>
             )}
           />
@@ -157,12 +156,12 @@ export function ContactForm() {
           <Button 
             type="submit" 
             disabled={isSubmitting || isSuccess}
-            className={`rounded-xl py-6 px-8 text-md transition-all duration-200 ${
-              isSuccess ? 'bg-green-500 hover:bg-green-500' : 'bg-brand-primary hover:bg-brand-primary/90'
-            } hover:scale-[1.03] active:scale-[0.97]`}
+            className={`rounded-xl py-6 px-8 text-md font-semibold transition-all duration-200 w-full ${
+              isSuccess ? 'bg-[#AACF45] hover:bg-[#AACF45]/90' : 'bg-[#08AFF1] hover:bg-[#08AFF1]/90'
+            } hover:scale-[1.02] active:scale-[0.98]`}
           >
             {isSubmitting ? (
-              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
               </svg>

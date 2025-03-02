@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactInfo } from "@/components/ContactInfo";
+import { Navbar } from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const Contact = () => {
   useEffect(() => {
@@ -9,15 +11,13 @@ const Contact = () => {
 
   return (
     <div>
+      <Navbar />
       <div className="container mx-auto px-4 py-16 md:py-24">
         <div className="max-w-screen-xl mx-auto">
           {/* Page header */}
           <div className="text-center mb-16 md:mb-24">
-            <span className="inline-block px-3 py-1 text-sm font-medium rounded-full bg-brand-light text-brand-primary mb-4 animate-fade-in">
-              Contact Us
-            </span>
             <h1
-              className="text-4xl md:text-5xl font-medium text-brand-dark mb-4 animate-fade-in"
+              className="text-4xl md:text-5xl font-bold text-[#AACF45] mb-4 animate-fade-in"
               style={{ animationDelay: "0.1s" }}
             >
               We're Here to Help
@@ -59,6 +59,7 @@ const Contact = () => {
           ></iframe>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
