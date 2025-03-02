@@ -5,6 +5,7 @@ import App from "./App";
 import Registration from "./pages/registration";
 import AboutPage from "./pages/about";
 import Login from "./pages/login"
+import ComingSoonPage from "./pages/comingsoon";
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -14,7 +15,8 @@ export const appRouter = createBrowserRouter([
       { path: "/disclaimer", element: <Disclaimer /> }, // Register page
       {path: "/registration", element: <Registration />} ,
       {path: "/about",element: <AboutPage />},
-      {path: "/login",element:<Login />}
+      {path: "/login",element:<Login />},
+      {path: "/comingsoon",element:<ComingSoonPage />},
     ],
   },
 ]);
