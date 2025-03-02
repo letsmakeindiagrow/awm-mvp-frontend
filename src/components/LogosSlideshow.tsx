@@ -1,9 +1,4 @@
-import { useEffect, useRef, useState } from "react";
-
 const LogosSlideshow = () => {
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-
   // Sample media logos with image paths - replace with your actual logos
   const logos = [
     { name: "Moneycontrol", imgSrc: "/groww.jpg" },
@@ -16,30 +11,6 @@ const LogosSlideshow = () => {
     { name: "Mint", imgSrc: "/zerodha.jpg" },
   ];
 
-  useEffect(() => {
-    const slider = sliderRef.current;
-    if (!slider) return;
-
-    // Clone the first item and check when it's out of view
-    const checkPosition = () => {
-      if (isHovering) return; // Pause scrolling when hovering
-
-      if (slider.scrollLeft >= slider.scrollWidth / 2) {
-        // Reset scroll position to start when we reach halfway
-        slider.scrollLeft = 0;
-      } else {
-        // Continue scrolling with increased speed (changed from 1 to 2)
-        slider.scrollLeft += 2;
-      }
-    };
-
-    // Start the animation with slightly increased speed (changed from 20ms to 15ms)
-    const slideInterval = setInterval(checkPosition, 15);
-
-    // Cleanup on unmount
-    return () => clearInterval(slideInterval);
-  }, [isHovering]);
-
   return (
     <div className="w-full bg-gradient-to-r from-gray-50 to-blue-50 p-12 overflow-hidden">
       <div className="mb-10 text-center">
@@ -49,56 +20,75 @@ const LogosSlideshow = () => {
         <div className="mx-auto w-24 h-1 bg-blue-500 mt-3 rounded-full"></div>
       </div>
 
-      <div
-        ref={sliderRef}
-        className="flex overflow-x-scroll scrollbar-hide scroll-smooth"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
-        {/* First set of logos */}
-        {logos.map((logo, index) => (
-          <div
-            key={`logo-${index}`}
-            className="flex-none flex items-center justify-center w-48 h-20 mx-4 transform transition-transform duration-300 hover:scale-110"
-          >
-            <div className="w-48 h-20 flex items-center justify-center px-4 py-2 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200">
-              <img
-                src={logo.imgSrc}
-                alt={logo.name}
-                className="max-h-16 max-w-full object-contain"
-              />
-            </div>
-          </div>
-        ))}
+      <div className="relative overflow-hidden">
+        {/* Primary slider container */}
+        <div className="logo-slider">
+          <div className="logo-slide-track">
+            {/* First set of logos */}
+            {logos.map((logo, index) => (
+              <div key={`logo-${index}`} className="logo-slide">
+                <div className="w-48 h-20 flex items-center justify-center px-4 py-2 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200">
+                  <img
+                    src={logo.imgSrc}
+                    alt={logo.name}
+                    className="max-h-16 max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            ))}
 
-        {/* Duplicate set for continuous scroll */}
-        {logos.map((logo, index) => (
-          <div
-            key={`logo-dup-${index}`}
-            className="flex-none flex items-center justify-center w-48 h-20 mx-4 transform transition-transform duration-300 hover:scale-110"
-          >
-            <div className="w-48 h-20 flex items-center justify-center px-4 py-2 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200">
-              <img
-                src={logo.imgSrc}
-                alt={logo.name}
-                className="max-h-16 max-w-full object-contain"
-              />
-            </div>
+            {/* Duplicate set for continuous loop */}
+            {logos.map((logo, index) => (
+              <div key={`logo-dup-${index}`} className="logo-slide">
+                <div className="w-48 h-20 flex items-center justify-center px-4 py-2 rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300 border border-gray-200">
+                  <img
+                    src={logo.imgSrc}
+                    alt={logo.name}
+                    className="max-h-16 max-w-full object-contain"
+                  />
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
 
       <style>{`
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        .scrollbar-hide::-webkit-scrollbar {
-          display: none;
+        .logo-slider {
+          height: 100px;
+          margin: auto;
+          position: relative;
+          width: 100%;
+          overflow: hidden;
         }
 
-        /* Hide scrollbar for IE, Edge and Firefox */
-        .scrollbar-hide {
-          -ms-overflow-style: none; /* IE and Edge */
-          scrollbar-width: none; /* Firefox */
+        .logo-slide-track {
+          animation: scroll 20s linear infinite;
+          display: flex;
+          width: calc(256px * ${logos.length * 2});
+        }
+
+        .logo-slide-track:hover {
+          animation-play-state: paused;
+        }
+
+        .logo-slide {
+          width: 192px;
+          margin: 0 32px;
+          transition: transform 0.3s;
+        }
+
+        .logo-slide:hover {
+          transform: scale(1.1);
+        }
+
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-256px * ${logos.length}));
+          }
         }
       `}</style>
     </div>
