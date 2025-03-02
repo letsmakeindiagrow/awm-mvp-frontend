@@ -25,7 +25,7 @@ const TechnologyVision = () => {
             </div>
           </div>
           <div className="md:w-2/3 p-8">
-            <p className="text-gray-700 text-lg leading-relaxed mb-6">
+            <p className="text-justify text-gray-700 text-lg leading-relaxed mb-6">
               We leverage cutting-edge technologies to transform financial
               management. Our engineering team combines deep domain expertise
               with innovative software solutions, creating robust, secure, and
@@ -33,37 +33,37 @@ const TechnologyVision = () => {
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
               <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div className="text-[#AACF45] font-bold mb-2">
+                <div className="text-[#AACF45] font-bold mb-2 text-center">
                   AI-Powered Analysis
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-justify text-gray-600 text-sm">
                   Machine learning algorithms that analyze market trends and
                   predict high-growth opportunities
                 </p>
               </div>
               <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div className="text-[#AACF45] font-bold mb-2">
+                <div className="text-[#AACF45] font-bold mb-2 text-center">
                   Data Analytics
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-justify text-gray-600 text-sm">
                   Comprehensive data processing to extract valuable insights and
                   inform strategic decisions
                 </p>
               </div>
               <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div className="text-[#AACF45] font-bold mb-2">
+                <div className="text-center text-[#AACF45] font-bold mb-2">
                   Secure Infrastructure
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-justify text-gray-600 text-sm">
                   Enterprise-grade security protocols protecting client
                   information and financial assets
                 </p>
               </div>
               <div className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div className="text-[#AACF45] font-bold mb-2">
+                <div className="text-center text-[#AACF45] font-bold mb-2">
                   Personalized Solutions
                 </div>
-                <p className="text-gray-600 text-sm">
+                <p className="text-justify text-gray-600 text-sm">
                   Customized technology tools tailored to individual client
                   needs and investment goals
                 </p>

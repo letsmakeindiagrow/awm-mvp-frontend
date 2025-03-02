@@ -52,8 +52,8 @@ export default {
 		  },
 		},
 		perspective: {
-		  'none': 'none',
-		  'default': '1000px',
+		  none: "none",
+		  default: "1000px",
 		},
 		// Add keyframes for flip animation
 		keyframes: {
@@ -72,20 +72,23 @@ export default {
 	  require("tailwindcss-animate"),
 	  function ({ addUtilities }) {
 		const newUtilities = {
-		  '.preserve-3d': {
-			transformStyle: 'preserve-3d',
+		  ".preserve-3d": {
+			transformStyle: "preserve-3d",
 		  },
-		  '.backface-hidden': {
-			backfaceVisibility: 'hidden',
+		  ".backface-hidden": {
+			backfaceVisibility: "hidden",
 		  },
-		  '.my-rotate-y-180': {
-			transform: 'rotateY(180deg)',
+		  ".my-rotate-y-180": {
+			transform: "rotateY(180deg)",
 		  },
-		  '.perspective': {
-			perspective: '1000px',
+		  ".perspective": {
+			perspective: "1000px",
 		  },
-		}
-		addUtilities(newUtilities)
-	  }
+		  ".justify-text": {
+			textAlign: "justify",
+		  },
+		};
+		addUtilities(newUtilities);
+	  },
 	],
   };

@@ -60,7 +60,7 @@ const TeamSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center py-16">
+    <div className="flex flex-col items-center py-100">
       <h2 className="text-3xl font-bold mb-8">Meet Our Team</h2>
       <Slider {...settings} className="w-full max-w-5xl">
         {teamData.map((member) => (

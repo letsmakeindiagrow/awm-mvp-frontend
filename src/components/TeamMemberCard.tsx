@@ -15,9 +15,10 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
         <div className="flip-card-inner w-full h-full">
           {/* Front Side */}
           <div className="flip-card-front w-full h-full">
-            <Card className="w-full h-full">
-              <CardHeader className="flex flex-col items-center">
-                <Avatar className="w-24 h-24 mb-4 border-4 border-[#AACF45]">
+            <Card className="w-full h-full flex items-center justify-center">
+              <CardHeader className="flex flex-col items-center space-y-4">
+                {/* Avatar */}
+                <Avatar className="w-32 h-32 border-4 border-[#AACF45]">
                   <AvatarImage src={member.imageUrl} alt={member.name} />
                   <AvatarFallback>
                     {member.name
@@ -26,11 +27,13 @@ const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
                       .join("")}
                   </AvatarFallback>
                 </Avatar>
+
+                {/* Name and Role */}
                 <CardTitle className="text-center">
-                  <div className="text-lg font-bold text-[#08AFF1]">
+                  <div className="text-xl font-bold text-[#08AFF1]">
                     {member.name}
                   </div>
-                  <div className="text-sm text-gray-600 mt-1">{member.role}</div>
+                  <div className="text-md text-gray-600 mt-2">{member.role}</div>
                 </CardTitle>
               </CardHeader>
             </Card>
