@@ -3,7 +3,7 @@ const OurCommitment = () => {
     <section className="max-w-5xl mx-auto px-4 mb-16">
       <div className="relative bg-white rounded-lg shadow-lg p-8 border-t-4 border-[#AACF45]">
         <div className="absolute top-0 right-0 w-32 h-32 transform translate-x-8 -translate-y-8">
-          <svg viewBox="0 0 100 100" className="text-[#08AFF1] opacity-10">
+          <svg viewBox="0 0 100 100" className="text-[#08AFF1] opacity-60">
             <path
               d="M96,20.3c-1.4-2-3.8-3.3-6.4-3.3h-30c-2.2,0-4,1.8-4,4v28c0,2.2,1.8,4,4,4h3.3l-8.8,16.6c-1.1,2-1.2,4.5-0.3,6.7 c0.9,2.2,2.8,3.7,5.1,4.1c4.3,0.8,8.7-1.6,10.1-5.5l8.7-26h11.8c2.3,0,4.6-1,6.1-2.8l10.9-13.1C99.1,28.7,98.7,23.7,96,20.3z"
               fill="currentColor"
@@ -19,7 +19,7 @@ const OurCommitment = () => {
           Our Commitment
         </h2>
 
-        <div className="text-gray-700 text-lg leading-relaxed relative z-10">
+        <div className="text-justify text-gray-700 text-lg leading-relaxed relative z-10">
           <p className="mb-4">
             At Aadyanvi Wealth Management, our commitment is to ensure your
             investment goals are not just met but exceeded. We strive to provide

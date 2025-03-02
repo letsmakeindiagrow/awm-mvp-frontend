@@ -8,7 +8,7 @@ const InvestmentPhilosophy = () => {
           </h2>
         </div>
         <div className="p-8">
-          <p className="text-gray-700 text-lg mb-6 leading-relaxed">
+          <p className="text-justify text-gray-700 text-lg mb-6 leading-relaxed">
             We believe in the power of strategic investment in market-leading
             stocks. By prioritizing these high-potential stocks, we aim to
             maximize long-term wealth creation for our clients. Our approach is
@@ -38,7 +38,7 @@ const InvestmentPhilosophy = () => {
                 <h3 className="text-lg font-semibold text-[#08AFF1]">
                   Strategic Investment in Stocks
                 </h3>
-                <p className="mt-2 text-gray-600">
+                <p className="text-justify mt-2 text-gray-600">
                   We specialize in identifying and investing in stocks that
                   consistently outperform the market.
                 </p>
@@ -66,7 +66,7 @@ const InvestmentPhilosophy = () => {
                 <h3 className="text-lg font-semibold text-[#08AFF1]">
                   Research-Driven Approach
                 </h3>
-                <p className="mt-2 text-gray-600">
+                <p className="text-justify mt-2 text-gray-600">
                   Our investment decisions are backed by rigorous research and
                   analysis.
                 </p>
@@ -94,7 +94,7 @@ const InvestmentPhilosophy = () => {
                 <h3 className="text-lg font-semibold text-[#08AFF1]">
                   Long-Term Wealth Creation
                 </h3>
-                <p className="mt-2 text-gray-600">
+                <p className="text-justify mt-2 text-gray-600">
                   We focus on building sustainable wealth for our clients
                   through long-term investment strategies.
                 </p>
@@ -122,7 +122,7 @@ const InvestmentPhilosophy = () => {
                 <h3 className="text-lg font-semibold text-[#08AFF1]">
                   Exceptional Value
                 </h3>
-                <p className="mt-2 text-gray-600">
+                <p className="text-justify mt-2 text-gray-600">
                   We are committed to delivering exceptional value and helping
                   our clients navigate the complexities of the financial markets
                   with confidence and clarity.
