@@ -4,28 +4,29 @@ import { Mail, ArrowRight, Twitter, Instagram, Linkedin, Facebook } from 'lucide
 const ComingSoonPage = () => {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [timeLeft, setTimeLeft] = useState({
-    days: 30,
-    hours: 0,
-    minutes: 0,
-    seconds: 0,
-  });
+  const targetDate = new Date("2025-03-30T00:00:00").getTime();
 
-  // Simulated countdown timer
+  const calculateTimeLeft = () => {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    }
+
+    return {
+      days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+      hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+      minutes: Math.floor((difference / (1000 * 60)) % 60),
+      seconds: Math.floor((difference / 1000) % 60),
+    };
+  };
+
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev.seconds > 0) {
-          return { ...prev, seconds: prev.seconds - 1 };
-        } else if (prev.minutes > 0) {
-          return { ...prev, minutes: prev.minutes - 1, seconds: 59 };
-        } else if (prev.hours > 0) {
-          return { ...prev, hours: prev.hours - 1, minutes: 59, seconds: 59 };
-        } else if (prev.days > 0) {
-          return { ...prev, days: prev.days - 1, hours: 23, minutes: 59, seconds: 59 };
-        }
-        return prev;
-      });
+      setTimeLeft(calculateTimeLeft());
     }, 1000);
 
     return () => clearInterval(timer);
@@ -35,7 +36,6 @@ const ComingSoonPage = () => {
     e.preventDefault();
     if (email) {
       setIsSubscribed(true);
-      // In a real app, you would send this to your API
       setEmail('');
       setTimeout(() => setIsSubscribed(false), 3000);
     }
@@ -53,12 +53,10 @@ const ComingSoonPage = () => {
         </p>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-          {[
-            { label: 'Days', value: timeLeft.days },
+          {[{ label: 'Days', value: timeLeft.days },
             { label: 'Hours', value: timeLeft.hours },
             { label: 'Minutes', value: timeLeft.minutes },
-            { label: 'Seconds', value: timeLeft.seconds },
-          ].map((item) => (
+            { label: 'Seconds', value: timeLeft.seconds }].map((item) => (
             <div key={item.label} className="bg-white rounded-lg shadow-md p-4">
               <div className="text-3xl sm:text-4xl font-bold text-[#08AFF1]">{item.value}</div>
               <div className="text-gray-500">{item.label}</div>
@@ -101,12 +99,10 @@ const ComingSoonPage = () => {
             Want to know more about what we're building? Follow us on social media for updates.
           </p>
           <div className="flex justify-center space-x-6">
-            {[
-              { name: 'Twitter', icon: Twitter, link: 'https://twitter.com/aadyanviwealth' },
+            {[{ name: 'Twitter', icon: Twitter, link: 'https://twitter.com/aadyanviwealth' },
               { name: 'Instagram', icon: Instagram, link: 'https://www.instagram.com/aadyanviwealth' },
               { name: 'Facebook', icon: Facebook, link: 'https://www.facebook.com/aadyanviwealth' },
-              { name: 'LinkedIn', icon: Linkedin, link: 'https://www.linkedin.com/company/aadyanviwealth/' },
-            ].map((platform) => (
+              { name: 'LinkedIn', icon: Linkedin, link: 'https://www.linkedin.com/company/aadyanviwealth/' }].map((platform) => (
               <a
                 key={platform.name}
                 href={platform.link}
