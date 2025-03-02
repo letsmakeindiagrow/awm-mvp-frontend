@@ -7,6 +7,7 @@ import { Testimonials } from "@/components/testimonials";
 import { CTA } from "@/components/cta";
 import { Footer } from "@/components/footer"; // ✅ Import the Blob Background
 import BlobStatic from "@/components/BlobStatic";
+import LogosSlideshow from "@/components/LogosSlideshow";
 // import Quotes from "@/components/Quotes";
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <Stats />
       <Testimonials />
       <CTA />
+      <LogosSlideshow />
       <Footer />
     </div>
   );
