@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ContactCardProps {
@@ -16,9 +16,7 @@ export function ContactInfo() {
         className="space-y-2 animate-fade-in"
         style={{ animationDelay: "0.1s" }}
       >
-        <h2 className="text-4xl font-bold text-[#08AFF1] mb-3">
-          Get in Touch
-        </h2>
+        <h2 className="text-4xl font-bold text-[#08AFF1] mb-3">Get in Touch</h2>
         <p className="text-gray-600 text-lg max-w-md">
           Have questions about our wealth management services? Reach out to us
           using any of the contact methods below.
@@ -30,11 +28,7 @@ export function ContactInfo() {
         <ContactCard
           icon={
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#AACF45]/10">
-              <MapPin
-                className="text-[#AACF45]"
-                size={24}
-                strokeWidth={2}
-              />
+              <MapPin className="text-[#AACF45]" size={24} strokeWidth={2} />
             </div>
           }
           title="Office & Business Details"
@@ -47,10 +41,13 @@ export function ContactInfo() {
                   Office
                 </h4>
                 <p className="text-gray-700">
-                  <span className="font-medium">AADYANVI WEALTH MANAGEMENT PRIVATE LIMITED</span>
+                  <span className="font-medium">
+                    AADYANVI WEALTH MANAGEMENT PRIVATE LIMITED
+                  </span>
                 </p>
                 <p className="text-gray-600 mt-1">
-                  <span className="font-medium">Locations:</span> Prayagraj | New Delhi
+                  <span className="font-medium">Locations:</span> Prayagraj |
+                  New Delhi
                 </p>
               </div>
 
@@ -60,10 +57,12 @@ export function ContactInfo() {
                   Business Details
                 </h4>
                 <p className="text-gray-700">
-                  <span className="font-medium">CIN:</span> U65990UP2021PTC145944
+                  <span className="font-medium">CIN:</span>{" "}
+                  U65990UP2021PTC145944
                 </p>
                 <p className="text-gray-600 mt-1">
-                  <span className="font-medium">Call Us:</span> Timing (Mon-Sat, 09:15 AM to 8:00 PM)
+                  <span className="font-medium">Call Us:</span> Timing (Mon-Sat,
+                  09:15 AM to 8:00 PM)
                 </p>
               </div>
             </div>
@@ -74,11 +73,7 @@ export function ContactInfo() {
         <ContactCard
           icon={
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#AACF45]/10">
-              <Mail 
-                className="text-[#AACF45]" 
-                size={24} 
-                strokeWidth={2} 
-              />
+              <Mail className="text-[#AACF45]" size={24} strokeWidth={2} />
             </div>
           }
           title="Email & Helpline"
@@ -100,7 +95,9 @@ export function ContactInfo() {
                   </a>
                 </p>
                 <p className="text-gray-600 mt-1">
-                  <span className="font-medium">Support & Technical Issues:</span>{" "}
+                  <span className="font-medium">
+                    Support & Technical Issues:
+                  </span>{" "}
                   <a
                     href="mailto:support@aadyanvi.com"
                     className="text-[#AACF45] hover:underline transition-colors"
