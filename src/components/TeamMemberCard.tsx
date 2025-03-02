@@ -6,72 +6,48 @@ import {
   CardTitle,
 } from "../components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
-import { Badge } from "../components/ui/badge";
-import SocialIcon from "./ScoailIcon";
 import { TeamMember } from "../types";
 
-const TeamMemberCard: React.FC<{
-  member: TeamMember;
-  variant?: "default" | "detailed";
-  className?: string;
-}> = ({ member, variant = "default" }) => (
-  <Card
-    className={`hover:shadow-xl transition-all ${
-      variant === "detailed" ? "h-full" : ""
-    }`}
-  >
-    <CardHeader className="flex flex-col items-center">
-      <Avatar className="w-32 h-32 mb-4 border-4 border-[#AACF45]">
-        <AvatarImage src={member.imageUrl} alt={member.name} />
-        <AvatarFallback>
-          {member.name
-            .split(" ")
-            .map((n) => n[0])
-            .join("")}
-        </AvatarFallback>
-      </Avatar>
-      <CardTitle className="text-center">
-        <div className="text-xl font-bold text-[#08AFF1]">{member.name}</div>
-        <div className="text-sm text-gray-600 mt-1">{member.role}</div>
-      </CardTitle>
-    </CardHeader>
-    <CardContent className="text-center">
-      <p className="text-gray-700 mb-4 text-sm">{member.bio}</p>
-      <div className="flex justify-center gap-2 mb-4">
-        {(member.background ?? []).map((skill: any) => (
-          <Badge key={skill} variant="secondary" className="bg-[#AACF45]">
-            {skill}
-          </Badge>
-        ))}
+const TeamMemberCard: React.FC<{ member: TeamMember }> = ({ member }) => {
+  return (
+    <div className="w-64 h-80">
+      <div className="flip-card w-full h-full">
+        <div className="flip-card-inner w-full h-full">
+          {/* Front Side */}
+          <div className="flip-card-front w-full h-full">
+            <Card className="w-full h-full">
+              <CardHeader className="flex flex-col items-center">
+                <Avatar className="w-24 h-24 mb-4 border-4 border-[#AACF45]">
+                  <AvatarImage src={member.imageUrl} alt={member.name} />
+                  <AvatarFallback>
+                    {member.name
+                      .split(" ")
+                      .map((n) => n[0])
+                      .join("")}
+                  </AvatarFallback>
+                </Avatar>
+                <CardTitle className="text-center">
+                  <div className="text-lg font-bold text-[#08AFF1]">
+                    {member.name}
+                  </div>
+                  <div className="text-sm text-gray-600 mt-1">{member.role}</div>
+                </CardTitle>
+              </CardHeader>
+            </Card>
+          </div>
+
+          {/* Back Side */}
+          <div className="flip-card-back w-full h-full">
+            <Card className="w-full h-full flex items-center justify-center p-4 text-center bg-white shadow-lg rounded-lg">
+              <CardContent>
+                <p className="text-gray-700 text-sm">{member.bio}</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
-      {variant === "detailed" && (
-        <>
-          {/* Checking if achievements is defined before rendering */}
-          {(member.achievements ?? []).length > 0 && (
-            <div className="mt-4">
-              <h4 className="text-sm font-semibold text-[#08AFF1] mb-2">
-                Key Achievements
-              </h4>
-              <ul className="text-xs text-gray-600 space-y-1">
-                {member.achievements?.map((achievement, index) => (
-                  <li key={index}>• {achievement}</li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </>
-      )}
-      <div className="flex justify-center space-x-3 mt-4">
-        {Object.entries(member.socialLinks || {}).map(([type, href]) => (
-          <SocialIcon
-            key={type}
-            type={type as "linkedin" | "twitter" | "github" | "email"}
-            href={href}
-          />
-        ))}
-      </div>
-    </CardContent>
-  </Card>
-);
+    </div>
+  );
+};
 
 export default TeamMemberCard;
