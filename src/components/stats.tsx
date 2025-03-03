@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 
 const stats = [
-  { label: "Assets Under Management", value: "₹10B+" },
-  { label: "Happy Clients", value: "5000+" },
-  { label: "Years of Experience", value: "15+" },
-  { label: "Return on Investment", value: "25%" },
+  { label: "Assets Under Management", value: "₹25M+" },
+  { label: "Happy Clients", value: "100+" },
+  { label: "Years of Experience", value: "10+" },
+  { label: "Return on Investment", value: "21%+" },
 ];
 
 export function Stats() {
