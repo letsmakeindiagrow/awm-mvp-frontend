@@ -7,8 +7,8 @@ export default function DisclaimerPage() {
       <main className="container mx-auto px-4 py-12 mt-[75px]">
         {/* Heading */}
         <div className="mx-auto max-w-4xl mb-10 text-center">
-          <h1 className="text-3xl font-bold text-[#2c5282] mb-2">Disclaimer</h1>
-          <div className="w-20 h-1 bg-[#3182ce] mx-auto mb-6"></div>
+          <h1 className="text-3xl font-bold text-[#08AFF1] mb-2">Disclaimer</h1>
+          <div className="w-20 h-1 bg-[#AACF45] mx-auto mb-6"></div>
         </div>
 
         <div className="mx-auto max-w-3xl space-y-8 bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
@@ -21,7 +21,7 @@ export default function DisclaimerPage() {
           <div className="space-y-8">
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -42,7 +42,7 @@ export default function DisclaimerPage() {
 
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -65,7 +65,7 @@ export default function DisclaimerPage() {
 
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -101,7 +101,7 @@ export default function DisclaimerPage() {
             </div>
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -137,7 +137,7 @@ export default function DisclaimerPage() {
             </div>
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -185,7 +185,7 @@ export default function DisclaimerPage() {
             </div>
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -233,7 +233,7 @@ export default function DisclaimerPage() {
             </div>
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
@@ -273,7 +273,7 @@ export default function DisclaimerPage() {
             </div>
             <div className="flex items-start">
               <Scale
-                className="text-[#2c5282] mr-4 mt-1 flex-shrink-0"
+                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
                 size={20}
               />
               <div>
