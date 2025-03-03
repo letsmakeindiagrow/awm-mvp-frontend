@@ -49,7 +49,7 @@ const ComingSoonPage = () => {
   };
 
   return (
-    <div className="mt-14 min-h-screen flex flex-col items-center justify-center p-4">
+    <div className="pt-12 mt-14 min-h-screen flex flex-col items-center justify-center p-4">
       <div className="max-w-3xl w-full text-center px-4">
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-4">
           We're still building<span className="text-[#08AFF1]">.</span>

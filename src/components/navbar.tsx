@@ -35,24 +35,26 @@ export function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-            <Link
-              to="/comingsoon"
+          <Link
+              to={"/"}
+              onClick={() => window.scrollTo(0, 0)}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
             >
-              Features
+              Home
             </Link>
             <Link
-              to="/about"
+              to={"/about"}
               onClick={() => window.scrollTo(0, 0)}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
             >
               About
             </Link>
             <Link
-              to="#testimonials"
+              to={"/comingsoon"}
+              onClick={() => window.scrollTo(0, 0)}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
             >
-              Testimonials
+              Features
             </Link>
             <Link
               to={"/contact"}
