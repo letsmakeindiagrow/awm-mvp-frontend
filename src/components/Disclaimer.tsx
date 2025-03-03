@@ -1,4 +1,4 @@
-import { AlertTriangle, Info, Scale } from "lucide-react";
+import { Scale } from "lucide-react";
 
 export default function DisclaimerPage() {
   return (
