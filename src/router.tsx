@@ -7,8 +7,8 @@ import AboutPage from "./pages/about";
 import Login from "./pages/login";
 import ComingSoonPage from "./pages/comingsoon";
 import Contact from "./pages/Contact";
-import PrivacyPage from "./components/PrivacyPolicy";
-import TermsPage from "./components/TermsOfUse";
+import Privacy from "./pages/privacy";
+import Terms from "./pages/terms";
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -21,8 +21,8 @@ export const appRouter = createBrowserRouter([
       { path: "/login", element: <Login /> },
       { path: "/comingsoon", element: <ComingSoonPage /> },
       { path: "/contact", element: <Contact /> },
-      { path: "/privacy", element: <PrivacyPage /> },
-      { path: "/terms", element: <TermsPage /> },
+      { path: "/privacy", element: <Privacy /> },
+      { path: "/terms", element: <Terms /> },
     ],
   },
 ]);
