@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
       <main className="container mx-auto px-3 py-12 mt-[75px]">
         {/* Heading */}
         <div className="mx-auto max-w-4xl mb-10 text-center">
-          <h1 className="text-3xl font-bold text-[#08AFF1] mb-2">Disclaimer</h1>
+          <h1 className="text-3xl font-bold text-[#08AFF1] mb-2">Privacy Policy</h1>
           <div className="w-20 h-1 bg-[#AACF45] mx-auto mb-6"></div>
         </div>
 
