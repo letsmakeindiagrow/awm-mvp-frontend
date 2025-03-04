@@ -191,7 +191,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  to="/privacy-policy"
+                  to="/privacy"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
                   Privacy Policy
@@ -284,7 +284,7 @@ export function Footer() {
           </p>
           <div className="flex gap-6 text-sm">
             <Link to="/disclaimer" onClick={()=>window.scrollTo(0,0)} className="text-gray-400 hover:text-[#08AFF1] transition-colors">Disclaimer</Link>
-            <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
+            <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Terms of Use</Link>
             <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
           </div>
