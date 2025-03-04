@@ -8,6 +8,7 @@ import Login from "./pages/login";
 import ComingSoonPage from "./pages/comingsoon";
 import Contact from "./pages/Contact";
 import PrivacyPage from "./components/PrivacyPolicy";
+import TermsPage from "./components/TermsOfUse";
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -21,6 +22,7 @@ export const appRouter = createBrowserRouter([
       { path: "/comingsoon", element: <ComingSoonPage /> },
       { path: "/contact", element: <Contact /> },
       { path: "/privacy", element: <PrivacyPage /> },
+      { path: "/terms", element: <TermsPage /> },
     ],
   },
 ]);
