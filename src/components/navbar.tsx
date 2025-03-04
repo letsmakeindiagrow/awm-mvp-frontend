@@ -62,12 +62,12 @@ export function Navbar() {
             >
               Contact
             </Link>
-            <Link to="/login" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/comingsoon" onClick={() => window.scrollTo(0, 0)}>
               <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
                 Client Login
               </button>
             </Link>
-            <Link to="/login" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/comingsoon" onClick={() => window.scrollTo(0, 0)}>
               <button className="bg-[#AACF45] text-white px-6 py-2 rounded-lg hover:bg-[#08AFF1] transition-colors">
                 Investor Login
               </button>
