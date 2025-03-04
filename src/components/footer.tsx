@@ -40,39 +40,6 @@ export function Footer() {
 
         {/* Footer Navigation */}
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-12 border-t border-gray-800">
-          {/* Contact Details */}
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">Contact Us</h4>
-            <ul className="space-y-3">
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#08AFF1]" />
-                <a
-                  href="mailto:namaste@aadyanvi.com"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  namaste@aadyanvi.com
-                </a>
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[#08AFF1]" />
-                <a
-                  href="tel:+918004218007 "
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  +91 8004218007
-                </a>
-              </li>
-              <li className="flex items-start gap-2">
-                <Clock className="h-4 w-4 text-[#08AFF1] mt-1" />
-                <span>Mon-Sun: 9:15 AM - 8:00 PM</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-[#08AFF1] mt-1" />
-                <span>ALLAHABAD | NEW DELHI</span>
-              </li>
-            </ul>
-          </div>
-
           {/* Indicator Algo */}
           <div className="pl-12">
             <h4 className=" text-lg font-medium text-white mb-4">
@@ -86,7 +53,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  SEBI India
+                  SEBI
                 </a>
               </li>
               <li>
@@ -96,7 +63,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  AMFI India
+                  AMFI
                 </a>
               </li>
               <li>
@@ -106,7 +73,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  IRDAI India
+                  IRDAI
                 </a>
               </li>
               <li>
@@ -116,7 +83,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  CDSL India
+                  CDSL
                 </a>
               </li>
               <li>
@@ -126,7 +93,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  NSDL India
+                  NSDL
                 </a>
               </li>
             </ul>
@@ -143,7 +110,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  NSE India
+                  NSE
                 </a>
               </li>
               <li>
@@ -153,7 +120,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  BSE India
+                  BSE
                 </a>
               </li>
               <li>
@@ -163,14 +130,14 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-[#08AFF1] transition-colors"
                 >
-                  MCX India
+                  MCX
                 </a>
               </li>
             </ul>
           </div>
 
           {/* Resources & Company */}
-          <div className="" >
+          <div>
             <h4 className="text-lg font-medium text-white mb-4">Company</h4>
             <ul className="space-y-3">
               <li>
@@ -205,6 +172,38 @@ export function Footer() {
                 >
                   Disclaimer
                 </Link>
+              </li>
+            </ul>
+          </div>
+          {/* Contact Details */}
+          <div>
+            <h4 className="text-lg font-medium text-white mb-4">Contact Us</h4>
+            <ul className="space-y-3">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-[#08AFF1]" />
+                <a
+                  href="mailto:namaste@aadyanvi.com"
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  namaste@aadyanvi.com
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-[#08AFF1]" />
+                <a
+                  href="tel:+918004218007 "
+                  className="hover:text-[#08AFF1] transition-colors"
+                >
+                  +91 8004218007
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <Clock className="h-4 w-4 text-[#08AFF1] mt-1" />
+                <span>Mon-Sun: 9:15 AM - 8:00 PM</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-[#08AFF1] mt-1" />
+                <span>ALLAHABAD | NEW DELHI</span>
               </li>
             </ul>
           </div>
@@ -283,10 +282,25 @@ export function Footer() {
             reserved.
           </p>
           <div className="flex gap-6 text-sm">
-            <Link to="/disclaimer" onClick={()=>window.scrollTo(0,0)} className="text-gray-400 hover:text-[#08AFF1] transition-colors">Disclaimer</Link>
-            <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
-            <Link to="/terms" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Terms of Use</Link>
-            <Link to="/privacy" className="text-gray-400 hover:text-[#08AFF1] transition-colors">Privacy Policy</Link>
+            <Link
+              to="/disclaimer"
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+            >
+              Disclaimer
+            </Link>
+            <Link
+              to="/privacy"
+              className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              to="/terms"
+              className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+            >
+              Terms of Use
+            </Link>
           </div>
         </div>
       </div>
