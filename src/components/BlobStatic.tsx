@@ -2,7 +2,7 @@ import React from "react";
 
 const BlobStatic: React.FC = () => {
   return (
-    <div className="absolute inset-0 w-full h-full overflow-hidden">
+    <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
       <svg
         width="100%"
         height="100%"
