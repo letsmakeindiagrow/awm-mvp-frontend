@@ -21,8 +21,8 @@ export function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
-      {/* Subscription Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mb-12">
+        {/* Subscription Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center mb-12">
           <div className="lg:col-span-1">
             <h3 className="text-xl font-medium text-white">
               Stay updated with the latest
@@ -55,21 +55,24 @@ export function Footer() {
               />
             </div>
             <div className="flex items-center gap-2 pl-7">
-              <p className="text-gray-400 text-lg">  
+              <p className="text-gray-400 text-lg">
                 <span className="font-medium">CIN:</span> U65990UP2021PTC145944
               </p>
             </div>
           </div>
 
           {/* Column 2: Site Map with Icons */}
-          <div className="pl-8"> {/* Added padding to shift content right */}
-            <h4 className="text-xl font-medium text-white mb-4">Quick Links</h4>  
+          <div className="pl-8">
+            {" "}
+            {/* Added padding to shift content right */}
+            <h4 className="text-xl font-medium text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Home className="h-5 w-5 text-[#08AFF1]" /> {/* Slightly larger icon */}
+                <Home className="h-5 w-5 text-[#08AFF1]" />{" "}
+                {/* Slightly larger icon */}
                 <Link
                   to="/"
-                  className="hover:text-[#08AFF1] transition-colors text-lg"  
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   Home
                 </Link>
@@ -114,14 +117,17 @@ export function Footer() {
           </div>
 
           {/* Column 3: Contact + Socials */}
-          <div className="pl-8"> {/* Added padding to shift content right */}
-            <h4 className="text-xl font-medium text-white mb-4">Contact Us</h4>  
+          <div className="pl-8">
+            {" "}
+            {/* Added padding to shift content right */}
+            <h4 className="text-xl font-medium text-white mb-4">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail className="h-5 w-5 text-[#08AFF1]" /> {/* Slightly larger icon */}
+                <Mail className="h-5 w-5 text-[#08AFF1]" />{" "}
+                {/* Slightly larger icon */}
                 <a
                   href="mailto:namaste@aadyanvi.com"
-                  className="hover:text-[#08AFF1] transition-colors text-lg"  
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   namaste@aadyanvi.com
                 </a>
@@ -137,15 +143,15 @@ export function Footer() {
               </li>
               <li className="flex items-start gap-2">
                 <Clock className="h-5 w-5 text-[#08AFF1] mt-1" />
-                <span className="text-lg">Mon-Sun: 9:15 AM - 8:00 PM</span>  
+                <span className="text-lg">Mon-Sun: 9:15 AM - 8:00 PM</span>
               </li>
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 text-[#08AFF1] mt-1" />
-                <span className="text-lg">ALLAHABAD | NEW DELHI</span>  
+                <span className="text-lg">PRAYAGRAJ | NEW DELHI</span>
               </li>
             </ul>
             <div className="mt-6">
-              <h4 className="text-xl font-medium text-white mb-4">  
+              <h4 className="text-xl font-medium text-white mb-4">
                 Connect With Us
               </h4>
               <div className="flex space-x-4">
@@ -192,80 +198,80 @@ export function Footer() {
 
         {/* Added Line */}
         <div className="text-xs text-gray-400 text-center mb-4">
-  <p>
-    <a
-      href="https://www.nseindia.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      NSE
-    </a>
-    {" | "}
-    <a
-      href="https://www.bseindia.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      BSE
-    </a>
-    {" | "}
-    <a
-      href="https://www.mcxindia.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      MCX
-    </a>
-    {" | "}
-    <a
-      href="https://www.sebi.gov.in"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      SEBI
-    </a>
-    {" | "}
-    <a
-      href="https://www.amfiindia.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      AMFI
-    </a>
-    {" | "}
-    <a
-      href="https://www.irdai.gov.in"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      IRDAI
-    </a>
-    {" | "}
-    <a
-      href="https://www.cdslindia.com"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      CDSL
-    </a>
-    {" | "}
-    <a
-      href="https://nsdl.co.in"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="hover:text-[#08AFF1] transition-colors"
-    >
-      NSDL
-    </a>
-  </p>
-</div>
+          <p>
+            <a
+              href="https://www.nseindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              NSE
+            </a>
+            {" | "}
+            <a
+              href="https://www.bseindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              BSE
+            </a>
+            {" | "}
+            <a
+              href="https://www.mcxindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              MCX
+            </a>
+            {" | "}
+            <a
+              href="https://www.sebi.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              SEBI
+            </a>
+            {" | "}
+            <a
+              href="https://www.amfiindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              AMFI
+            </a>
+            {" | "}
+            <a
+              href="https://www.irdai.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              IRDAI
+            </a>
+            {" | "}
+            <a
+              href="https://www.cdslindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              CDSL
+            </a>
+            {" | "}
+            <a
+              href="https://nsdl.co.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              NSDL
+            </a>
+          </p>
+        </div>
 
         {/* Disclaimer Section */}
         <div className="text-xs text-gray-400 hover:text-[#08AFF1] transition-colors text-center mb-4">

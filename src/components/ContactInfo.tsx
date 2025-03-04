@@ -1,4 +1,4 @@
-import { MapPin, Mail, PhoneCall } from "lucide-react";
+import { PhoneCall } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ContactCardProps {
