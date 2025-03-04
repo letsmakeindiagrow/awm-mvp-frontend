@@ -1,4 +1,4 @@
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, PhoneCall } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ContactCardProps {
@@ -23,67 +23,40 @@ export function ContactInfo() {
         </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 mt-8 flex-grow">
-        {/* Office and Business Details Card */}
+      <div className="mt-8 flex-grow">
         <ContactCard
           icon={
             <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#AACF45]/10">
-              <MapPin className="text-[#AACF45]" size={24} strokeWidth={2} />
+              <PhoneCall className="text-[#AACF45]" size={24} strokeWidth={2} />
             </div>
           }
-          title="Office & Business Details"
+          title="Contact Information"
           delay={0.2}
           content={
-            <div className="space-y-4">
-              {/* Office Section */}
+            <div className="space-y-6 text-base">
+              {/* Company Name and CIN */}
               <div>
-                <h4 className="text-md font-semibold text-[#08AFF1] mb-2">
-                  Office
+                <h4 className="text-lg font-semibold text-[#AACF45] mb-2">
+                  AADYANVI WEALTH MANAGEMENT PRIVATE LIMITED
                 </h4>
-                <p className="text-gray-700">
-                  <span className="font-medium">
-                    AADYANVI WEALTH MANAGEMENT PRIVATE LIMITED
-                  </span>
-                </p>
-                <p className="text-gray-600 mt-1">
-                  <span className="font-medium">Locations:</span> Prayagraj |
-                  New Delhi
-                </p>
-              </div>
-
-              {/* Business Section */}
-              <div>
-                <h4 className="text-md font-semibold text-[#08AFF1] mb-2">
-                  Business Details
-                </h4>
-                <p className="text-gray-700">
+                <p className="text-gray-600">
                   <span className="font-medium">CIN:</span>{" "}
                   U65990UP2021PTC145944
                 </p>
-                <p className="text-gray-600 mt-1">
-                  <span className="font-medium">Call Us:</span> Timing (Mon-Sat,
-                  09:15 AM to 8:00 PM)
-                </p>
               </div>
-            </div>
-          }
-        />
 
-        {/* Email and Helpline Card */}
-        <ContactCard
-          icon={
-            <div className="w-12 h-12 flex items-center justify-center rounded-full bg-[#AACF45]/10">
-              <Mail className="text-[#AACF45]" size={24} strokeWidth={2} />
-            </div>
-          }
-          title="Email & Helpline"
-          delay={0.3}
-          content={
-            <div className="space-y-4">
+              {/* Office Locations */}
+              <div>
+                <h4 className="text-lg font-semibold text-[#08AFF1] mb-2">
+                  Offices
+                </h4>
+                <p className="text-gray-600">Prayagraj | New Delhi</p>
+              </div>
+
               {/* Email Section */}
               <div>
-                <h4 className="text-md font-semibold text-[#08AFF1] mb-2">
-                  Email
+                <h4 className="text-lg font-semibold text-[#08AFF1] mb-2">
+                  Write Us
                 </h4>
                 <p className="text-gray-700">
                   <span className="font-medium">General Information:</span>{" "}
@@ -109,7 +82,7 @@ export function ContactInfo() {
 
               {/* Helpline Section */}
               <div>
-                <h4 className="text-md font-semibold text-[#08AFF1] mb-2">
+                <h4 className="text-lg font-semibold text-[#08AFF1] mb-2">
                   Helpline
                 </h4>
                 <p className="text-gray-700">
@@ -120,6 +93,10 @@ export function ContactInfo() {
                   >
                     +91 8004218007
                   </a>
+                </p>
+                <p className="text-gray-600 mt-1">
+                  <span className="font-medium">Call Us:</span> Timing (Mon-Sat,
+                  09:15 am to 8:00 pm)
                 </p>
               </div>
             </div>
@@ -140,16 +117,16 @@ function ContactCard({
   return (
     <div
       className={cn(
-        "p-6 rounded-xl bg-white shadow-md border border-gray-100 animate-fade-in hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1",
+        "p-[1.55rem] rounded-xl bg-white shadow-md border border-gray-100 animate-fade-in hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 w-full max-w-2xl mx-auto", // Increased padding and max-width
         className
       )}
       style={{ animationDelay: `${delay}s` }}
     >
       <div className="flex items-start space-x-4">
         <div>{icon}</div>
-        <div className="space-y-3 flex-1">
-          <h3 className="text-xl font-semibold text-[#08AFF1]">{title}</h3>
-          <div className="text-sm text-gray-600">{content}</div>
+        <div className="space-y-4 flex-1">
+          <h3 className="text-2xl font-semibold text-[#08AFF1]">{title}</h3>
+          <div className="text-gray-600">{content}</div>
         </div>
       </div>
     </div>
