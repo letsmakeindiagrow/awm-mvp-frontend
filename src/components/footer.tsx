@@ -10,6 +10,11 @@ import {
   Phone,
   Clock,
   MapPin,
+  FileText,
+  Shield,
+  Info,
+  Home,
+  Briefcase,
 } from "lucide-react";
 
 export function Footer() {
@@ -37,230 +42,237 @@ export function Footer() {
             </div>
           </div>
         </div>
-
-        {/* Footer Navigation */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 py-12 border-t border-gray-800">
-          {/* Indicator Algo */}
-          <div className="pl-12">
-            <h4 className=" text-lg font-medium text-white mb-4">
-              Market Entities
-            </h4>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="https://www.sebi.gov.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  SEBI
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.amfiindia.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  AMFI
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.irdai.gov.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  IRDAI
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.cdslindia.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  CDSL
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://nsdl.co.in"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  NSDL
-                </a>
-              </li>
-            </ul>
+        {/* Footer Navigation - Larger and Balanced */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-12 border-t border-gray-800">
+          {/* Column 1: Bigger Logo + CIN */}
+          <div className="flex flex-col items-start">
+            <div className="mb-6">
+              <img
+                src="/logo.png"
+                alt="Aadyanvi Wealth"
+                className="brightness-0 invert"
+                style={{ width: 300, height: 180 }} // Increased logo size
+              />
+            </div>
+            <div className="flex items-center gap-2 pl-7">
+              <p className="text-gray-400 text-lg">
+                <span className="font-medium">CIN:</span> U65990UP2021PTC145944
+              </p>
+            </div>
           </div>
 
-          {/* Discretionary & Community */}
-          <div className="pl-10">
-            <h4 className="text-lg font-medium text-white mb-4">Exchanges</h4>
+          {/* Column 2: Site Map with Icons */}
+          <div className="pl-8">
+            {" "}
+            {/* Added padding to shift content right */}
+            <h4 className="text-xl font-medium text-white mb-4">Quick Links</h4>
             <ul className="space-y-3">
-              <li>
-                <a
-                  href="https://www.nseindia.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
+              <li className="flex items-center gap-2">
+                <Home className="h-5 w-5 text-[#08AFF1]" />{" "}
+                {/* Slightly larger icon */}
+                <Link
+                  to="/"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
-                  NSE
-                </a>
+                  Home
+                </Link>
               </li>
-              <li>
-                <a
-                  href="https://www.bseindia.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  BSE
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://www.mcxindia.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  MCX
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Resources & Company */}
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">Company</h4>
-            <ul className="space-y-3">
-              <li>
+              <li className="flex items-center gap-2">
+                <Info className="h-5 w-5 text-[#08AFF1]" />
                 <Link
                   to="/about"
-                  className="hover:text-[#08AFF1] transition-colors"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   About Us
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/terms"
-                  className="hover:text-[#08AFF1] transition-colors"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
-              <li>
+              <li className="flex items-center gap-2">
+                <Shield className="h-5 w-5 text-[#08AFF1]" />
                 <Link
                   to="/privacy"
-                  className="hover:text-[#08AFF1] transition-colors"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   Privacy Policy
                 </Link>
               </li>
-              <li>
+              <li className="flex items-center gap-2">
+                <FileText className="h-5 w-5 text-[#08AFF1]" />
+                <Link
+                  to="/terms"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
+                >
+                  Terms & Conditions
+                </Link>
+              </li>
+              <li className="flex items-center gap-2">
+                <Briefcase className="h-5 w-5 text-[#08AFF1]" />
                 <Link
                   to="/disclaimer"
-                  onClick={() => window.scrollTo(0, 0)}
-                  className="hover:text-[#08AFF1] transition-colors"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   Disclaimer
                 </Link>
               </li>
             </ul>
           </div>
-          {/* Contact Details */}
-          <div>
-            <h4 className="text-lg font-medium text-white mb-4">Contact Us</h4>
+
+          {/* Column 3: Contact + Socials */}
+          <div className="pl-8">
+            {" "}
+            {/* Added padding to shift content right */}
+            <h4 className="text-xl font-medium text-white mb-4">Contact Us</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-[#08AFF1]" />
+                <Mail className="h-5 w-5 text-[#08AFF1]" />{" "}
+                {/* Slightly larger icon */}
                 <a
                   href="mailto:namaste@aadyanvi.com"
-                  className="hover:text-[#08AFF1] transition-colors"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   namaste@aadyanvi.com
                 </a>
               </li>
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-[#08AFF1]" />
+                <Phone className="h-5 w-5 text-[#08AFF1]" />
                 <a
                   href="tel:+918004218007 "
-                  className="hover:text-[#08AFF1] transition-colors"
+                  className="hover:text-[#08AFF1] transition-colors text-lg"
                 >
                   +91 8004218007
                 </a>
               </li>
               <li className="flex items-start gap-2">
-                <Clock className="h-4 w-4 text-[#08AFF1] mt-1" />
-                <span>Mon-Sun: 9:15 AM - 8:00 PM</span>
+                <Clock className="h-5 w-5 text-[#08AFF1] mt-1" />
+                <span className="text-lg">Mon-Sun: 9:15 AM - 8:00 PM</span>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin className="h-4 w-4 text-[#08AFF1] mt-1" />
-                <span>ALLAHABAD | NEW DELHI</span>
+                <MapPin className="h-5 w-5 text-[#08AFF1] mt-1" />
+                <span className="text-lg">PRAYAGRAJ | NEW DELHI</span>
               </li>
             </ul>
-          </div>
-
-          {/* Social Links & Logo */}
-          <div className="col-span-2 md:col-span-4 lg:col-span-1">
-            <h4 className="text-lg font-medium text-white mb-4">
-              Connect With Us
-            </h4>
-            <div className="flex space-x-4">
-              <a
-                href="https://twitter.com/aadyanviwealth"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
-                <Twitter className="h-6 w-6" />
-                <span className="sr-only">Twitter</span>
-              </a>
-              <a
-                href="https://www.linkedin.com/company/aadyanviwealth/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a
-                href="https://www.instagram.com/aadyanviwealth"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
-                <Instagram className="h-6 w-6" />
-                <span className="sr-only">YouTube</span>
-              </a>
-              <a
-                href="https://www.facebook.com/aadyanviwealth"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-[#08AFF1] transition-colors"
-              >
-                <Facebook className="h-6 w-6" />
-                <span className="sr-only">YouTube</span>
-              </a>
-            </div>
-            <div className="mt-8">
-              <img
-                src="/logo.png"
-                alt="Aadyanvi Wealth"
-                className="brightness-0 invert"
-                style={{ width: 150, height: 80 }}
-              />
+            <div className="mt-6">
+              <h4 className="text-xl font-medium text-white mb-4">
+                Connect With Us
+              </h4>
+              <div className="flex space-x-4">
+                <a
+                  href="https://twitter.com/aadyanviwealth"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+                >
+                  <Twitter className="h-6 w-6" />
+                  <span className="sr-only">Twitter</span>
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/aadyanviwealth/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+                >
+                  <Linkedin className="h-6 w-6" />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/aadyanviwealth"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+                >
+                  <Instagram className="h-6 w-6" />
+                  <span className="sr-only">Instagram</span>
+                </a>
+                <a
+                  href="https://www.facebook.com/aadyanviwealth"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#08AFF1] transition-colors"
+                >
+                  <Facebook className="h-6 w-6" />
+                  <span className="sr-only">Facebook</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Added Line */}
+        <div className="text-xs text-gray-400 text-center mb-4">
+          <p>
+            <a
+              href="https://www.nseindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              NSE
+            </a>
+            {" | "}
+            <a
+              href="https://www.bseindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              BSE
+            </a>
+            {" | "}
+            <a
+              href="https://www.mcxindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              MCX
+            </a>
+            {" | "}
+            <a
+              href="https://www.sebi.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              SEBI
+            </a>
+            {" | "}
+            <a
+              href="https://www.amfiindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              AMFI
+            </a>
+            {" | "}
+            <a
+              href="https://www.irdai.gov.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              IRDAI
+            </a>
+            {" | "}
+            <a
+              href="https://www.cdslindia.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              CDSL
+            </a>
+            {" | "}
+            <a
+              href="https://nsdl.co.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#08AFF1] transition-colors"
+            >
+              NSDL
+            </a>
+          </p>
+        </div>
+
         {/* Disclaimer Section */}
         <div className="text-xs text-gray-400 hover:text-[#08AFF1] transition-colors text-center mb-4">
           <p>
