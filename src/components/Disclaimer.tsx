@@ -1,17 +1,15 @@
-import { Scale } from "lucide-react";
-
 export default function DisclaimerPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-12 mt-[75px]">
+      <main className="container mx-auto px-3 py-12 mt-[75px]">
         {/* Heading */}
         <div className="mx-auto max-w-4xl mb-10 text-center">
           <h1 className="text-3xl font-bold text-[#08AFF1] mb-2">Disclaimer</h1>
           <div className="w-20 h-1 bg-[#AACF45] mx-auto mb-6"></div>
         </div>
 
-        <div className="mx-auto max-w-3xl space-y-8 bg-white rounded-lg border border-gray-200 p-8 shadow-sm">
+        <div className="mx-auto max-w-5xl space-y-8 bg-white rounded-lg border border-gray-200 p-8 shadow-sm text-justify">
           <p className="text-gray-700 mb-8 leading-relaxed">
             Please read this disclaimer carefully before using our services. By
             accessing or using our platform, you acknowledge that you have read,
@@ -20,10 +18,6 @@ export default function DisclaimerPage() {
 
           <div className="space-y-8">
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   Aadyanvi Wealth Management Private Limited maintains this
@@ -41,10 +35,6 @@ export default function DisclaimerPage() {
             </div>
 
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   This Site is meant solely for the purposes of providing
@@ -64,10 +54,6 @@ export default function DisclaimerPage() {
             </div>
 
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   The products, services and benefits referred to herein are
@@ -100,10 +86,6 @@ export default function DisclaimerPage() {
               </div>
             </div>
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   The products, services and benefits referred to herein are
@@ -136,10 +118,6 @@ export default function DisclaimerPage() {
               </div>
             </div>
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   Any views/ideas expressed by a third party, in this Site, in
@@ -184,10 +162,6 @@ export default function DisclaimerPage() {
               </div>
             </div>
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   Any views/ideas expressed by a third party, in this Site, in
@@ -232,10 +206,6 @@ export default function DisclaimerPage() {
               </div>
             </div>
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   Any text write-up present on the Site is for the general
@@ -272,10 +242,6 @@ export default function DisclaimerPage() {
               </div>
             </div>
             <div className="flex items-start">
-              <Scale
-                className="text-[#AACF45] mr-4 mt-1 flex-shrink-0"
-                size={20}
-              />
               <div>
                 <p className="text-gray-700 leading-relaxed text-sm">
                   All information shall be provided at the sole and absolute
