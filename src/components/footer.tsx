@@ -192,8 +192,80 @@ export function Footer() {
 
         {/* Added Line */}
         <div className="text-xs text-gray-400 text-center mb-4">
-          <p>NSE | BSE | MCX | SEBI | AMFI | IRDAI | CDSL | NSDL</p>
-        </div>
+  <p>
+    <a
+      href="https://www.nseindia.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      NSE
+    </a>
+    {" | "}
+    <a
+      href="https://www.bseindia.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      BSE
+    </a>
+    {" | "}
+    <a
+      href="https://www.mcxindia.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      MCX
+    </a>
+    {" | "}
+    <a
+      href="https://www.sebi.gov.in"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      SEBI
+    </a>
+    {" | "}
+    <a
+      href="https://www.amfiindia.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      AMFI
+    </a>
+    {" | "}
+    <a
+      href="https://www.irdai.gov.in"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      IRDAI
+    </a>
+    {" | "}
+    <a
+      href="https://www.cdslindia.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      CDSL
+    </a>
+    {" | "}
+    <a
+      href="https://nsdl.co.in"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:text-[#08AFF1] transition-colors"
+    >
+      NSDL
+    </a>
+  </p>
+</div>
 
         {/* Disclaimer Section */}
         <div className="text-xs text-gray-400 hover:text-[#08AFF1] transition-colors text-center mb-4">
