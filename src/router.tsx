@@ -9,6 +9,7 @@ import ComingSoonPage from "./pages/comingsoon";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";
+import Dashboard from "./pages/ClientDashboard";
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -23,6 +24,7 @@ export const appRouter = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/privacy", element: <Privacy /> },
       { path: "/terms", element: <Terms /> },
+      { path: "/dashboard", element: <Dashboard /> },
     ],
   },
 ]);
