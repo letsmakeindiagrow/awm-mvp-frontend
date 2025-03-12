@@ -35,7 +35,7 @@ export function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-          <Link
+            <Link
               to={"/"}
               onClick={() => window.scrollTo(0, 0)}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
@@ -65,6 +65,11 @@ export function Navbar() {
             <Link to="/comingsoon" onClick={() => window.scrollTo(0, 0)}>
               <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
                 Client Login
+              </button>
+            </Link>
+            <Link to="/fyers" onClick={() => window.scrollTo(0, 0)}>
+              <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
+                fyers
               </button>
             </Link>
             <Link to="/comingsoon" onClick={() => window.scrollTo(0, 0)}>
