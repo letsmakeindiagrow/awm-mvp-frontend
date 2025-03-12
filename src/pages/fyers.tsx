@@ -44,7 +44,7 @@ const FyersAuth = () => {
 
     // Use the redirect URL that matches your backend callback route
     const redirectUri = encodeURIComponent(
-      "http://localhost:5000/api/callback"
+      "https://awm-mvp-backend.onrender.com/api/v1/fyers/callback"
     );
 
     // Redirect to Fyers authentication page
@@ -64,11 +64,14 @@ const FyersAuth = () => {
 
     try {
       // Call your backend API to exchange the auth code for a token
-      const response = await axios.post("/api/getToken", {
-        appId,
-        appSecret,
-        auth_code: authCode,
-      });
+      const response = await axios.post(
+        "https://awm-mvp-backend.onrender.com/api/v1/fyers/getToken",
+        {
+          appId,
+          appSecret,
+          auth_code: authCode,
+        }
+      );
 
       // Handle the token response
       if (response.data && response.data.access_token) {
