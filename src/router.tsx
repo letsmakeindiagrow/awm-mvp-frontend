@@ -25,6 +25,7 @@ export const appRouter = createBrowserRouter([
       { path: "/privacy", element: <Privacy /> },
       { path: "/terms", element: <Terms /> },
       { path: "/fyers", element: <FyersAuth /> },
+      { path: "/fyers/:authCode", element: <FyersAuth /> },
     ],
   },
 ]);

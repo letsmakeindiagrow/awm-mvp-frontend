@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import axios from "axios";
 
 const FyersAuth = () => {
@@ -10,15 +11,27 @@ const FyersAuth = () => {
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  // Get auth code from URL params if present
+  const params = useParams();
+  const location = useLocation();
+
   useEffect(() => {
-    // Check URL for auth_code parameter when redirected back
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("auth_code");
+    // Try multiple ways to get the auth code
+
+    // 1. Check URL parameters for auth_code (from query string)
+    const urlParams = new URLSearchParams(location.search);
+    const queryAuthCode = urlParams.get("auth_code");
+
+    // 2. Check route parameters (from path)
+    const pathAuthCode = params.authCode;
+
+    // 3. Use whichever auth code is available
+    const code = queryAuthCode || pathAuthCode;
 
     if (code) {
       setAuthCode(code);
-      // Clean up the URL without refreshing the page
-      window.history.replaceState({}, document.title, window.location.pathname);
+      // Optionally clean up URL without refreshing
+      window.history.replaceState({}, document.title, "/fyers");
     }
 
     // Check for saved token
@@ -27,7 +40,7 @@ const FyersAuth = () => {
       setAccessToken(savedToken);
       setIsConnected(true);
     }
-  }, []);
+  }, [location, params]);
 
   const initiateLogin = () => {
     if (!appId) {
