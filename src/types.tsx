@@ -12,3 +12,21 @@ export type TeamMember = {
       email?: string;
     };
   };
+
+  // File: types.ts
+export interface User {
+  email: string;
+  password: string;
+  rememberMe?: boolean;
+}
+
+export interface LoginResponse {
+  success: boolean;
+  token?: string;
+  user?: {
+    id: string;
+    email: string;
+    name: string;
+  };
+  error?: string;
+}

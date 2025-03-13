@@ -56,7 +56,7 @@ export function StockScanner() {
             onClick={() => setActiveTab(tab)}
             className={`px-4 py-2 rounded-md transition-colors ${
               activeTab === tab
-                ? "bg-gradient-primary text-white"
+                ? "bg-gray-200"
                 : "bg-gray-100 text-gray-600 hover:bg-gray-200"
             }`}
           >

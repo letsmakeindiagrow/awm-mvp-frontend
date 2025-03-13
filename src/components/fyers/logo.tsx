@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { LogOutIcon, Menu, X } from "lucide-react";
 
-export function Navbar() {
+export function Logo() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -18,9 +18,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 border-b border-gray-100 transition-all duration-300 ${
-        isScrolled ? "bg-white/80 backdrop-blur-md" : "bg-transparent"
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 bg-transparent`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
@@ -35,41 +33,15 @@ export function Navbar() {
             </Link>
           </div>
           <div className="hidden md:flex items-center space-x-8">
-          <Link
-              to={"/"}
-              onClick={() => window.scrollTo(0, 0)}
-              className="text-gray-700 hover:text-[#AACF45] transition-colors"
-            >
-              Home
-            </Link>
             <Link
-              to={"/about"}
-              onClick={() => window.scrollTo(0, 0)}
+              to={"/login"}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
             >
-              About
+              Log In
             </Link>
-            <Link
-              to={"/comingsoon"}
-              onClick={() => window.scrollTo(0, 0)}
-              className="text-gray-700 hover:text-[#AACF45] transition-colors"
-            >
-              Features
-            </Link>
-            <Link
-              to={"/contact"}
-              className="text-gray-700 hover:text-[#AACF45] transition-colors"
-            >
-              Contact
-            </Link>
-            <Link to="/login" onClick={() => window.scrollTo(0, 0)}>
-              <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
-                Client Login
-              </button>
-            </Link>
-            <Link to="/login" onClick={() => window.scrollTo(0, 0)}>
+            <Link to="/signup">
               <button className="bg-[#AACF45] text-white px-6 py-2 rounded-lg hover:bg-[#08AFF1] transition-colors">
-                Investor Login
+                Sign Up
               </button>
             </Link>
           </div>
@@ -92,37 +64,14 @@ export function Navbar() {
         >
           <div className="px-2 pt-2 pb-3 space-y-1">
             <Link
-              to="#features"
+              to="/login"
               className="block px-3 py-2 text-gray-700 hover:text-[#AACF45] transition-colors"
             >
-              Features
+              Log In
             </Link>
-            <Link
-              to="#about"
-              className="block px-3 py-2 text-gray-700 hover:text-[#AACF45] transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="#testimonials"
-              className="block px-3 py-2 text-gray-700 hover:text-[#AACF45] transition-colors"
-            >
-              Testimonials
-            </Link>
-            <Link
-              to="#contact"
-              className="block px-3 py-2 text-gray-700 hover:text-[#AACF45] transition-colors"
-            >
-              Contact
-            </Link>
-            <Link to="/fyers">
-              <button className="w-full text-center bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
-                Client Login
-              </button>
-            </Link>
-            <Link to="/login">
+            <Link to="/signup">
               <button className="w-full text-center bg-[#AACF45] text-white px-6 py-2 rounded-lg hover:bg-[#08AFF1] transition-colors">
-                Investor Login
+                Sign Up
               </button>
             </Link>
           </div>
@@ -132,4 +81,4 @@ export function Navbar() {
   );
 }
 
-export default Navbar;
+export default Logo;

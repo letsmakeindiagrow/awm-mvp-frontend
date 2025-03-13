@@ -59,14 +59,14 @@ export default {
         },
         // Custom colors from the Next.js app
         brand: {
-          blue: "#4F95FF",
-          green: "#4CD964",
+          blue: "#08AFF1",
+          green: "#AACF45",
           darkBlue: "#1E293B",
           lightBlue: "#60A5FA",
         },
         gradient: {
-          start: "#4CD964",
-          mid: "#4F95FF",
+          start: "#AACF45",
+          mid: "#08AFF1",
           end: "#3B82F6",
         },
         // Custom chart colors from the React app

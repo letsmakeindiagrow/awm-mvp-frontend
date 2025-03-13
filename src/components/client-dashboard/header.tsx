@@ -76,9 +76,12 @@ export function Header() {
     <header className="bg-white border-b border-gray-100 shadow-sm">
       <div className="flex items-center justify-between h-16 px-6">
         <div className="flex items-center">
-          <div className="text-xl font-bold bg-gradient-to-r from-brand-green to-brand-blue bg-clip-text text-transparent mr-8">
-            Trading Dashboard
-          </div>
+          {/* Replace the text with your logo image */}
+          <img
+            src="/new logo png website.png" // Update this path to your logo image
+            alt="Trading Dashboard Logo"
+            className="h-60 w-50 mr-8 mt-3" // Adjust height and width as needed
+          />
 
           <nav className="hidden md:flex items-center space-x-6">
             <Link to="#" className="text-gray-700 hover:text-brand-blue">

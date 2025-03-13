@@ -10,6 +10,7 @@ import Contact from "./pages/Contact";
 import Privacy from "./pages/privacy";
 import Terms from "./pages/terms";
 import Dashboard from "./pages/ClientDashboard";
+import LoginPage from "./pages/Fyers"
 export const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -25,6 +26,7 @@ export const appRouter = createBrowserRouter([
       { path: "/privacy", element: <Privacy /> },
       { path: "/terms", element: <Terms /> },
       { path: "/dashboard", element: <Dashboard /> },
+      {path: "/fyers", element: <LoginPage />}
     ],
   },
 ]);
