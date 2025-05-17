@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 export function CTA() {
   return (
@@ -28,14 +29,23 @@ export function CTA() {
           transition={{ duration: 0.5 }}
         >
           <div className="inline-flex rounded-md shadow">
-            <button className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-[#AACF45] bg-white hover:bg-gray-50">
+            <a 
+            href="https://login.aadyanviwealth.com/" 
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => window.scrollTo(0, 0)}
+            >
+              <button className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-[#AACF45] bg-white hover:bg-gray-50">
               Get started
             </button>
+            </a>
           </div>
           <div className="ml-3 inline-flex rounded-md shadow">
+            <Link to={"/about"} onClick={()=>window.scrollTo(0, 0)}>
             <button className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#08AFF1] hover:bg-[#50c0e6]">
               Learn more
             </button>
+            </Link>
           </div>
         </motion.div>
       </div>

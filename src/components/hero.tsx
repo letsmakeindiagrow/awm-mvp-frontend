@@ -23,9 +23,17 @@ export function Hero() {
               Achieving Your Financial Goals with Aadyanvi Wealth Management.
             </p>
             <div className="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left">
-              <button className=" inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#AACF45] hover:bg-[#08AFF1] transition-colors duration-300">
-                Start Investing Now
-              </button>
+              <a
+  href="https://login.aadyanviwealth.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => window.scrollTo(0, 0)}
+>
+  <button className="inline-flex items-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#AACF45] hover:bg-[#08AFF1] transition-colors duration-300">
+    Start Investing Now
+  </button>
+</a>
+
             </div>
           </motion.div>
           

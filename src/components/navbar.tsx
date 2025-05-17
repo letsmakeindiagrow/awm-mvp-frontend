@@ -67,11 +67,17 @@ export function Navbar() {
                 Client Login
               </button>
             </Link>
-            <Link to="/comingsoon" onClick={() => window.scrollTo(0, 0)}>
-              <button className="bg-[#AACF45] text-white px-6 py-2 rounded-lg hover:bg-[#08AFF1] transition-colors">
-                Investor Login
-              </button>
-            </Link>
+            <a
+  href="https://login.aadyanviwealth.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  onClick={() => window.scrollTo(0, 0)}
+>
+  <button className="bg-[#AACF45] text-white px-6 py-2 rounded-lg hover:bg-[#08AFF1] transition-colors">
+    Investor Login
+  </button>
+</a>
+
           </div>
           <div className="md:hidden flex items-center">
             <button

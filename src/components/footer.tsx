@@ -303,12 +303,14 @@ export function Footer() {
             </Link>
             <Link
               to="/privacy"
+              onClick={() => window.scrollTo(0, 0)}
               className="text-gray-400 hover:text-[#08AFF1] transition-colors"
             >
               Privacy Policy
             </Link>
             <Link
               to="/terms"
+              onClick={() => window.scrollTo(0, 0)}
               className="text-gray-400 hover:text-[#08AFF1] transition-colors"
             >
               Terms of Use
