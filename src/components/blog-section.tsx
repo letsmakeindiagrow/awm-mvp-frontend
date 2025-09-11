@@ -136,13 +136,15 @@ export function BlogSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <Button
-            variant="outline"
-            className="text-[#08AFF1] border-[#08AFF1] hover:bg-[#08AFF1] hover:text-white"
-          >
-            View All Articles
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <a href="/blog">
+            <Button
+              variant="outline"
+              className="text-[#08AFF1] border-[#08AFF1] hover:bg-[#08AFF1] hover:text-white"
+            >
+              View All Articles
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>

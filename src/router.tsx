@@ -8,6 +8,8 @@ import Login from "./pages/login";
 import ComingSoonPage from "./pages/comingsoon";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/privacy";
+import BlogListPage from "./pages/blog";
+import BlogPostPage from "./pages/blog-post";
 import Terms from "./pages/terms";
 export const appRouter = createBrowserRouter([
   {
@@ -23,6 +25,8 @@ export const appRouter = createBrowserRouter([
       { path: "/contact", element: <Contact /> },
       { path: "/privacy", element: <Privacy /> },
       { path: "/terms", element: <Terms /> },
+      { path: "/blog", element: <BlogListPage /> },
+      { path: "/blog/:slug", element: <BlogPostPage /> },
     ],
   },
 ]);

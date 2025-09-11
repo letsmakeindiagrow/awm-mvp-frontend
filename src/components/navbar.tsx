@@ -56,11 +56,18 @@ export function Navbar() {
             >
               Features
             </Link>
-            <Link
+            <Link 
               to={"/contact"}
               className="text-gray-700 hover:text-[#AACF45] transition-colors"
             >
               Contact
+            </Link>
+            <Link
+              to={"/blog"}
+              onClick={() => window.scrollTo(0, 0)}
+              className="text-gray-700 hover:text-[#AACF45] transition-colors"
+            >
+              Blogs
             </Link>
             <Link to="/comingsoon" onClick={() => window.scrollTo(0, 0)}>
               <button className="bg-[#08AFF1] text-white px-6 py-2 rounded-lg hover:bg-[#AACF45] transition-colors">
@@ -108,6 +115,13 @@ export function Navbar() {
               className="block px-3 py-2 text-gray-700 hover:text-[#AACF45] transition-colors"
             >
               About
+            </Link>
+            <Link
+              to="/blog"
+              onClick={() => setIsOpen(false)}
+              className="block px-3 py-2 text-gray-700 hover:text-[#AACF45] transition-colors"
+            >
+              Blogs
             </Link>
             <Link
               to="#testimonials"
