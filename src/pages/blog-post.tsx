@@ -5,6 +5,24 @@ import Footer from "@/components/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { fetchPostBySlug, type WispPost } from "../lib/wisp";
 
+// Function to remove "powered by wisp" branding from HTML content
+function removeWispBranding(html: string): string {
+  if (!html) return html;
+  
+  // Remove various patterns of "powered by wisp" text
+  return html
+    .replace(/<div[^>]*class="[^"]*wisp[^"]*"[^>]*>.*?<\/div>/gis, '')
+    .replace(/<p[^>]*class="[^"]*wisp[^"]*"[^>]*>.*?<\/p>/gis, '')
+    .replace(/<span[^>]*class="[^"]*wisp[^"]*"[^>]*>.*?<\/span>/gis, '')
+    .replace(/<a[^>]*href="[^"]*wisp[^"]*"[^>]*>.*?<\/a>/gis, '')
+    .replace(/powered\s+by\s+wisp/gi, '')
+    .replace(/powered\s+by\s+Wisp/gi, '')
+    .replace(/powered\s+by\s+WISP/gi, '')
+    .replace(/Powered\s+by\s+wisp/gi, '')
+    .replace(/Powered\s+by\s+Wisp/gi, '')
+    .replace(/Powered\s+by\s+WISP/gi, '');
+}
+
 export default function BlogPostPage() {
   const { slug } = useParams();
   const [post, setPost] = useState<WispPost | null>(null);
@@ -60,7 +78,7 @@ export default function BlogPostPage() {
                   )}
                 </div>
                 {post.html && (
-                  <div className="prose prose-gray max-w-none mt-6" dangerouslySetInnerHTML={{ __html: post.html }} />
+                  <div className="prose prose-gray max-w-none mt-6" dangerouslySetInnerHTML={{ __html: removeWispBranding(post.html) }} />
                 )}
               </CardContent>
             </Card>
