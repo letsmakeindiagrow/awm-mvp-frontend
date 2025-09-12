@@ -70,6 +70,7 @@ export default {
   },
   plugins: [
     require("tailwindcss-animate"),
+    require("@tailwindcss/typography"),
     function ({ addUtilities }) {
       const newUtilities = {
         ".preserve-3d": {
