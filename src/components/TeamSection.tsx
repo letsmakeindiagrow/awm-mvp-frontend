@@ -27,7 +27,7 @@ const teamData: TeamMember[] = [
     name: "Pranay Sharma",
     role: "Tech. Developer",
     imageUrl: "./pranay.png",
-    bio: "Pranay is a skilled developer with a passion for building scalable and efficient systems.",
+    bio: "Pranay is a proficient developer, adept in Python and the MERN stack, with a passion for crafting high-performance, scalable, and elegant systems.",
   },
   {
     name: "Pushkar Aggarwal",
