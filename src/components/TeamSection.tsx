@@ -17,12 +17,12 @@ const teamData: TeamMember[] = [
     imageUrl: "./Puja.jpg",
     bio: "Pooja Shukla is a dedicated philanthropist with a strong background in Sociology and Philosophy. She focuses on community empowerment and financial literacy.",
   },
-  {
-    name: "Rishabh Patidar",
-    role: "Senior Research Analyst (Equity)",
-    imageUrl: "./Rishabh.jpg",
-    bio: "Rishabh Patidar is a Senior Research Analyst specializing in equity research and sector analysis. He holds a Master’s degree in Chemical Engineering from IIT Gandhinagar.",
-  },
+  // {
+  //   name: "Rishabh Patidar",
+  //   role: "Senior Research Analyst (Equity)",
+  //   imageUrl: "./Rishabh.jpg",
+  //   bio: "Rishabh Patidar is a Senior Research Analyst specializing in equity research and sector analysis. He holds a Master’s degree in Chemical Engineering from IIT Gandhinagar.",
+  // },
   {
     name: "Pranay Sharma",
     role: "Tech. Developer",
